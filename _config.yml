@@ -7,20 +7,20 @@
 
 # Site Settings
 locale                   : "en"
-title                    : "YALMIP"
+title                    : 
 title_separator          : "-"
-name                     : "Johan Löfberg"
-description              : "YALMIP A toolbox for modelling and optimization"
-url                      : "https://yalmip.github.io"
+name                     : "Işık İlber Sırmatel"
+description              : 
+url                      : "https://sirmatel.github.io"
 baseurl                  : # ""
-repository               : "johanlofberg/yalmip" # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
+repository               : 
 teaser                   : # filename of teaser fallback teaser image placed in /images/, .e.g. "500x300.png"
 # breadcrumbs            : false # true, false (default)
 words_per_minute         : 200
 comments:
   provider               : "disqus" # false (default), "disqus", "discourse", "facebook", "google-plus", "staticman", "custom"
   disqus:
-    shortname            : "yalmip" # https://help.disqus.com/customer/portal/articles/466208-what-s-a-shortname-
+    shortname            : "sirmatel" # https://help.disqus.com/customer/portal/articles/466208-what-s-a-shortname-
   discourse:
     server               : # https://meta.discourse.org/t/embedding-discourse-comments-via-javascript/31963 , e.g.: meta.discourse.org
   facebook:
@@ -77,12 +77,12 @@ analytics:
 
 # Site Author
 author:
-  name             : "Johan Löfberg"
-  avatar           : "lofberg.jpg"
-  bio              : "Yep."
-  location         : "Linköping University"
-  email            : "johan.lofberg@liu.se"
-  uri              : "http://users.isy.liu.se/johanl"
+  name             : "Işık İlber Sırmatel"
+  avatar           : "bio-photo.jpg"
+  bio              : "Researcher in automatic control of transportation."
+  location         : 
+  email            : "isik.sirmatel@gmail.com"
+  uri              : 
   bitbucket        :
   codepen          :
   dribbble         :
