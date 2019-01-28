@@ -8,7 +8,7 @@
 # Site Settings
 locale                   : "en"
 title                    : 
-title_separator          : "-"
+title_separator          : 
 name                     : "Işık İlber Sırmatel"
 description              : 
 url                      : "https://sirmatel.github.io"
