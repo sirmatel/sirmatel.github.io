@@ -1,0 +1,455 @@
+# main links links
+main:
+  - title: "Download"
+    url: /download
+    
+  - title: "Search"
+    url: /search
+    
+  - title: "Tutorials"
+    url: /tutorials
+
+  - title: "Examples"
+    url: /examples
+
+  - title: "Commands"
+    url: /allcommands
+
+  - title: "Solvers"
+    url: /allsolvers
+
+  - title: "Index"
+    url: /tags
+
+  - title: "FAQ"
+    url: /faq
+
+  - title: "References"
+    url: /reference
+
+  - title: "Forum"
+    url: "https://groups.google.com/forum/#!forum/yalmip"
+
+
+
+solvers:
+  - title: Internal solvers
+    children:
+      - title: "BISECTION"
+        url: /solver/bisection
+      - title: "BNB"
+        url: /solver/bnb
+      - title: "BMIBNB"
+        url: /solver/bmibnb
+      - title: "CUTSDP"
+        url: /solver/cutsdp
+      - title: "KKTQP"
+        url: /solver/kktqp
+      - title: "MOMENT"
+        url: /solver/moment
+  - title: External solvers
+    children:
+      - title: "BARON"
+        url: /solver/baron
+      - title: "BINTPROG"
+        url: /solver/bintprog
+      - title: "BONMIN"
+        url: /solver/bonmin
+      - title: "BPMPD"
+        url: /solver/bpmpd
+      - title: "CBC"
+        url: /solver/cbc
+      - title: "CDD"
+        url: /solver/cdd
+      - title: "CDCS"
+        url: /solver/cdcs
+      - title: "CPLEX"
+        url: /solver/cplex
+      - title: "CSDP"
+        url: /solver/csdp
+      - title: "DSDP"
+        url: /solver/dsdp
+      - title: "ECOS"
+        url: /solver/ecos
+      - title: "FILTERSD"
+        url: /solver/filtersd
+      - title: "FMINCON"
+        url: /solver/fmincon
+      - title: "GLPK"
+        url: /solver/glpk
+      - title: "GPPOSY"
+        url: /solver/gpposy
+      - title: "GUROBI"
+        url: /solver/gurobi
+      - title: "INTLINPROG"
+        url: /solver/intlinprog
+      - title: "IPOPT"
+        url: /solver/ipopt
+      - title: "KNITRO"
+        url: /solver/knitro
+      - title: "LINPROG"
+        url: /solver/linprog
+      - title: "LMILAB"
+        url: /solver/lmilab
+      - title: "LMIRANK"
+        url: /solver/lmirank
+      - title: "LOGDETPPA"
+        url: /solver/logdetppa
+      - title: "LPSOLVE"
+        url: /solver/lpsolve
+      - title: "LSQLIN"
+        url: /solver/lsqlin
+      - title: "LSQLINNONNEG"
+        url: /solver/lsqlinnonneg
+      - title: "MOSEK"
+        url: /solver/mosek
+      - title: "MPT"
+        url: /solver/mpt
+      - title: "NAG"
+        url: /solver/nag
+      - title: "NOMAD"
+        url: /solver/nomad
+      - title: "OOQP"
+        url: /solver/ooqp
+      - title: "PENBMI"
+        url: /solver/penbmi
+      - title: "PENLAB"
+        url: /solver/penlab
+      - title: "PENSDP"
+        url: /solver/pensdp
+      - title: "QPC"
+        url: /solver/qpc
+      - title: "OSQP"
+        url: /solver/osqp
+      - title: "QPOASES"
+        url: /solver/qpoases
+      - title: "QSOPT"
+        url: /solver/qsopt
+      - title: "QUADPROG"
+        url: /solver/quadprog
+      - title: "QUADPROGBB"
+        url: /solver/quadprogbb
+      - title: "SCIP"
+        url: /solver/scip
+      - title: "SDPA"
+        url: /solver/sdpa
+      - title: "SDPLR"
+        url: /solver/sdplr
+      - title: "SDPNAL"
+        url: /solver/sdpnal
+      - title: "SDPT3"
+        url: /solver/sdpt3
+      - title: "SEDUMI"
+        url: /solver/sedumi
+      - title: "SNOPT"
+        url: /solver/snopt
+      - title: "SPARSEPOP"
+        url: /solver/sparsepop
+      - title: "XPRESS"
+        url: /solver/xpress
+examples:
+  - title: Control
+    children:
+      - title: "MPC - basics"
+        url: /example/standardmpc
+      - title: "MPC - explicit solution"
+        url: /example/explicitmpc
+      - title: "MPC - robust solutions"
+        url: /example/robustmpc
+      - title: "MPC - hybrid models"
+        url: /example/hybridmpc
+      - title: "MPC - LPV models I"
+        url: /example/explicitlpvmpc
+      - title: "MPC - LPV models II"
+        url: /example/explicitlpvampc
+      - title: "Simulink simulations"
+        url: /example/simulink
+      - title: "LPV state feedback"
+        url: /example/lpvstatefeedback
+      - title: "Unit commitment planning"
+        url: /example/unitcommitment
+      - title: "Decay rate estimation"
+        url: /example/decayrate
+  - title: Finance
+    children:     
+      - title: "Portfolio allocation"
+        url: /example/portfolio     
+  - title: Geometry
+    children:  
+      - title: "Polytopic geometry"
+        url: /example/polytopicgeometry      
+  - title: Other
+    children:
+      - title: "Bilevel programming"
+        url: /example/bilevelprogrammingalternatives
+      - title: "Experiment design"
+        url: /example/experimentdesign
+      - title: "Polytopic geometry"
+        url: /example/polytopicgeometry
+      - title: "Portfolio allocation"
+        url: /example/portfolio
+      - title: "Sudoku solver"
+        url: /example/sudoku
+      - title: "Sum-of-squares processing"
+        url: /example/moresos        
+tutorials:
+  - title: Introduction
+    children:
+      - title: "Installation"
+        url: /tutorial/installation
+      - title: "Getting started!"
+        url: /tutorial/basics
+
+  - title: Standard problem classes
+    children:
+      - title: "Linear programming"
+        url: /tutorial/linearprogramming
+      - title: "Quadratic programming"
+        url: /tutorial/quadraticprogramming
+      - title: "Second order cone programming"
+        url: /tutorial/socpprogramming
+      - title: "Semidefinite programming"
+        url: /tutorial/semidefiniteprogramming
+      - title: "Determinant optimization"
+        url: /tutorial/maxdetprogramming
+      - title: "Geometric programming"
+        url: /tutorial/geometricprogramming
+      - title: "Exponential cone programming"
+        url: /tutorial/exponentialcone
+      - title: "General convex programming"
+        url: /tutorial/generalconvexprogramming
+      - title: "Integer programming"
+        url: /tutorial/integerprogramming
+      - title: "Global optimization"
+        url: /tutorial/globaloptimization
+  - title: Advanced problem classes
+    children:
+      - title: "Robust optimization"
+        url: /tutorial/robustoptimization
+      - title: "Multiparametric programming"
+        url: /tutorial/multiparametricprogramming
+      - title: "Bilevel programming"
+        url: /tutorial/bilevelprogramming
+      - title: "Sum-of-squares programming"
+        url: /tutorial/sumofsquaresprogramming
+      - title: "Moment relaxations"
+        url: /tutorial/momentrelaxations
+  - title: Auxilliary
+    children:
+      - title: "Nonlinear operators"
+        url: /tutorial/nonlinearoperators
+      - title: "Big-M and convex hulls"
+        url: /tutorial/bigmandconvexhulls
+      - title: "Envelope approximations for global optimization"
+        url: /tutorial/envelopesinbmibnb
+      - title: "Duality"
+        url: /tutorial/duality
+      - title: "Automatic dualizations"
+        url: /tutorial/automaticdualization
+      - title: "Complex problems"
+        url: /tutorial/complexproblems
+
+
+commands:
+  - title: Most common
+    children:
+      - title: "sdpvar"
+        url: /command/sdpvar
+      - title: "optimize"
+        url: /command/optimize
+      - title: "value"
+        url: /command/value
+      - title: "sdpsettings"
+        url: /command/sdpsettings
+  - title: Variable declaration
+    children:
+      - title: "binvar"
+        url: /command/binvar
+      - title: "intvar"
+        url: /command/intvar
+      - title: "sdpvar"
+        url: /command/sdpvar
+      - title: "semivar"
+        url: /command/semivar
+      - title: "uncertain"
+        url: /command/uncertain
+  - title: Optimization
+    children:
+      - title: "bisection"
+        url: /command/bisection
+      - title: "optimize"
+        url: /command/optimize
+      - title: "optimizer"
+        url: /command/optimizer
+      - title: "solvebilevel"
+        url: /command/solvebilevel
+      - title: "solvemoment"
+        url: /command/solvemoment
+      - title: "solvemp"
+        url: /command/solvemp
+      - title: "solvesos"
+        url: /command/solvesos
+  - title: Optimization model manipulations
+    children:
+      - title: "dualize"
+        url: /command/dualize
+      - title: "export"
+        url: /command/export
+      - title: "kkt"
+        url: /command/kkt
+      - title: "momentmodel"
+        url: /command/momentmodel
+      - title: "robustmodel"
+        url: /command/robustmodel
+      - title: "sosmodel"
+        url: /command/sosmodel
+  - title: Variable manipulations
+    children:
+      - title: "assign"
+        url: /command/assign
+      - title: "binmodel"
+        url: /command/binmodel
+      - title: "blkvar"
+        url: /command/blkvar
+      - title: "coefficients"
+        url: /command/coefficients
+      - title: "complements"
+        url: /command/complements        
+      - title: "degree"
+        url: /command/degree
+      - title: "dissect"
+        url: /command/dissect
+      - title: "hessian"
+        url: /command/hessian
+      - title: "int"
+        url: /command/int
+      - title: "is"
+        url: /command/is
+      - title: "jacobian"
+        url: /command/jacobian
+      - title: "linearize"
+        url: /command/linearize
+      - title: "monolist"
+        url: /command/monolist
+      - title: "polynomial"
+        url: /command/polynomial
+      - title: "replace"
+        url: /command/replace        
+      - title: "sdisplay"
+        url: /command/sdisplay
+      - title: "sparse"
+        url: /command/sparse
+      - title: "unblkdiag"
+        url: /command/unblkdiag
+      - title: "value"
+        url: /command/value
+  - title: Variable operators (selected)
+    children:
+      - title: "abs"
+        url: /command/abs
+      - title: "cpower"
+        url: /command/cpower
+      - title: "crossentropy"
+        url: /command/crossentropy
+      - title: "det"
+        url: /command/det
+      - title: "entropy"
+        url: /command/entropy
+      - title: "erf"
+        url: /command/erf
+      - title: "exp"
+        url: /command/exp
+      - title: "geomean"
+        url: /command/geomean
+      - title: "huber"
+        url: /command/huber
+      - title: "interp1"
+        url: /command/interp1
+      - title: "interp2"
+        url: /command/interp2
+      - title: "kullbackleibler"
+        url: /command/kullbackleibler
+      - title: "log"
+        url: /command/log
+      - title: "logdet"
+        url: /command/logdet
+      - title: "logistic"
+        url: /command/logistic
+      - title: "logsumexp"
+        url: /command/logsumexp
+      - title: "median"
+        url: /command/median
+      - title: "nnz"
+        url: /command/nnz
+      - title: "norm"
+        url: /command/norm
+      - title: "pnorm"
+        url: /command/pnorm
+      - title: "nnz"
+        url: /command/nnz
+      - title: "sdpfun"
+        url: /command/sdpfun
+      - title: "sort"
+        url: /command/sort
+      - title: "sqrt"
+        url: /command/sqrt
+      - title: "sqrtm"
+        url: /command/sqrtm
+  - title: Constraints
+    children:
+      - title: "alldifferent"
+        url: /command/alldifferent
+      - title: "binary"
+        url: /command/binary
+      - title: "cone"
+        url: /command/cone
+      - title: "cut"
+        url: /command/cut
+      - title: "iff"
+        url: /command/iff
+      - title: "implies"
+        url: /command/implies
+      - title: "integer"
+        url: /command/integer
+      - title: "rank"
+        url: /command/rank
+      - title: "rcone"
+        url: /command/rcone
+      - title: "sos"
+        url: /command/sos
+      - title: "sos2"
+        url: /command/sos2
+      - title: "uncertain"
+        url: /command/uncertain
+  - title: Constraint manipulation
+    children:
+      - title: "boundingbox"
+        url: /command/boundingbox
+      - title: "check"
+        url: /command/check
+      - title: "dilate"
+        url: /command/dilate
+      - title: "dual"
+        url: /command/dual
+      - title: "hull"
+        url: /command/hull
+      - title: "is"
+        url: /command/is
+      - title: "ismember"
+        url: /command/ismember
+      - title: "sosd"
+        url: /command/sosd
+  - title: Auxilliary
+    children:
+      - title: "loadsdpafile"
+        url: /command/loadsdpafile
+      - title: "loadsedumidata"
+        url: /command/loadsedumidata
+      - title: "saveampl"
+        url: /command/saveampl
+      - title: "savecplexlp"
+        url: /command/savecplexlp
+      - title: "savesdpafile"
+        url: /command/savesdpafile
+      - title: "yalmiptest"
+        url: /command/yalmiptest
