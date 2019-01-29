@@ -1,6 +1,6 @@
 ---
 title: "Home"
-layout: archive
+layout: single
 author_profile: true
 ---
 
