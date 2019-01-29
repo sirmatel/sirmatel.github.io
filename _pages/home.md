@@ -1,6 +1,6 @@
 ---
 title: "Home"
-layout: archive
+layout: page
 author_profile: true
 permalink: /home/
 ---
