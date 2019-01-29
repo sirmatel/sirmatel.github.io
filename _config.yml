@@ -11,7 +11,7 @@ title                    :
 title_separator          : 
 name                     : "Işık İlber Sırmatel"
 description              : 
-url                      : "https://sirmatel.github.io"
+#url                      : "https://sirmatel.github.io"
 baseurl                  : # ""
 repository               : 
 teaser                   : # filename of teaser fallback teaser image placed in /images/, .e.g. "500x300.png"
@@ -84,9 +84,9 @@ author:
   email            : "isik.sirmatel@gmail.com"
   google:
     scholar: SP2aGyUAAAAJ
-  university:      : isik.sirmatel?lang=en
-  quora:           : profile/Işık-İlber-Sırmatel
-  linkedin:        : işık-ilber-sırmatel-7098b459
+  university       : isik.sirmatel?lang=en
+  quora            : profile/Işık-İlber-Sırmatel
+  linkedin         : işık-ilber-sırmatel-7098b459
   uri              : 
   bitbucket        :
   codepen          :
