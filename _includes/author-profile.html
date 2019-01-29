@@ -34,6 +34,12 @@
       {% if author.google.scholar %}
         <li><a href="http://scholar.google.ch/citations?user={{ author.google.scholar}}" class="author-social" target="_blank"><i class="ai ai-fw ai-google-scholar"></i> Google Scholar</a></li>
       {% endif %}
+      {% if author.university %}
+        <li><a href="https://people.epfl.ch/{{ author.university }}" class="author-social" target="_blank"><i class="fa fa-university"></i> University</a></li>
+      {% endif %}
+      {% if author.quora %}
+        <li><a href="https://www.quora.com/{{ author.quora }}" class="author-social" target="_blank"><i class="fa fa-quora"></i> Quora</a></li>
+      {% endif %}
       {% if author.keybase %}
         <li><a href="https://keybase.io/{{ author.keybase }}"><i class="fa fa-fw fa-key" aria-hidden="true"></i> Keybase</a></li>
       {% endif %}
