@@ -1,6 +1,6 @@
 ---
 title: "Home"
-layout: page
+layout: splash
 author_profile: true
 permalink: /home/
 ---
