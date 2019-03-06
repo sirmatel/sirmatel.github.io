@@ -12,13 +12,7 @@ sidebar:
   nav: "tutorials"
 ---
 
-In this tutorial we will attempt to create nonlinear model predictive control (MPC) code in MATLAB using MPCTools. We will need MATLAB (version R2015b or higher), MPCTools[^Risbeck2016] (a free Octave/MATLAB toolbox for nonlinear MPC), and CasADi[^Andersson2018] (version 3.1 or higher) (a free Python/MATLAB toolbox for nonlinear optimization and numerical optimal control). Install CasADi first, by visiting
-
-\href{https://web.casadi.org/}{https://web.casadi.org/}
-
-then install MPCTools, by visiting
-
-\href{https://bitbucket.org/rawlings-group/octave-mpctools/overview}{https://bitbucket.org/rawlings-group/octave-mpctools/overview}
+In this tutorial we will attempt to create nonlinear model predictive control (MPC) code in MATLAB using MPCTools. We will need MATLAB (version R2015b or higher), <a href="https://bitbucket.org/rawlings-group/octave-mpctools/overview" style="color: #2d5a8c; text-decoration:underline">MPCTools</a>[^Risbeck2016] (a free Octave/MATLAB toolbox for nonlinear MPC), and <a href="https://web.casadi.org/" style="color: #2d5a8c; text-decoration:underline">CasADi</a>[^Andersson2018] (version 3.1 or higher) (a free Python/MATLAB toolbox for nonlinear optimization and numerical optimal control).
 
 [^Risbeck2016]: Risbeck, M. J., & Rawlings, J. B. (2016). MPCTools: Nonlinear model predictive control tools for CasADi.
 
