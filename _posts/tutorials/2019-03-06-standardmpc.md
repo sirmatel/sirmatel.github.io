@@ -18,7 +18,7 @@ We consider the following nonlinear MPC formulation:
 
 $$
 \begin{aligned}
-\text{minimize } & \quad \int_{t}^{t+T_p}{l(x(\tau),u(\tau))d\tau} + V_f(x(t+T_p)) \\
+\text{minimize }_{u(\cdot)} & \quad \int_{t}^{t+T_p}{l(x(\tau),u(\tau))d\tau} + V_f(x(t+T_p)) \\
 \text{subject to } & \quad x(t) = \hat{x}(t) \\
 & \quad \text{for } \tau \in [t, t+T_p]: \\
 & \qquad \dot{x}(\tau) = f(x(\tau),u(\tau)) \\
