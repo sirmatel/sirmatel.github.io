@@ -294,7 +294,7 @@ from the MATLAB command window. The arguments here (i.e., $-0.7$ and $-0.85$) ar
 ````plot_results(d)````
 the MATLAB command window. The resulting figure is given below.
 
-({{ site.url }}/images/implement_NMPC_MPCTools_results.png){: .center-image }
+![implement NMPC with MPCTools, results]({{ site.url }}/images/implement_NMPC_MPCTools_results.png){: .center-image }
 
 [^Risbeck2016]: Risbeck, M. J., & Rawlings, J. B. (2016). MPCTools: Nonlinear model predictive control tools for CasADi.
 
