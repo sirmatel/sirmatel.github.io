@@ -18,8 +18,8 @@ We consider the following nonlinear MPC formulation:
 
 $$
 \begin{aligned}
-\text{minimize }_{u(\cdot)} & \quad \int_{t}^{t+T_p}{l(x(\tau),u(\tau))d\tau} + V_f(x(t+T_p)) \\
-\text{subject to } & \quad x(t) = \hat{x}(t) \\
+\text{minimize} & \quad \int_{t}^{t+T_p}{l(x(\tau),u(\tau))d\tau} + V_f(x(t+T_p)) \\
+\text{subject to} & \quad x(t) = \hat{x}(t) \\
 & \quad \text{for } \tau \in [t, t+T_p]: \\
 & \qquad \dot{x}(\tau) = f(x(\tau),u(\tau)) \\
 & \qquad x_{\text{min}} \leq x(\tau) \leq x_{\text{max}} \\
@@ -94,8 +94,19 @@ function d = build_setup(d)
     
 end
 ````
+Here the use of -Inf and Inf indicates that the state is unconstrained, while the control input is constrained as $$-2 \leq u(t) \leq 2$$.
 
+We can create a simulator object, that will act as the plant within the simulation, as follows:
+````matlab
+function d = create_simulator(d)
 
+    d.c.simulator = ...
+        d.c.mpc.getCasadiIntegrator(@define_dynamics, ...
+        d.p.T, [d.p.n_x, d.p.n_u], {'x', 'u'});
+    
+end
+````
+Here the arguments are the dynamics $$f(\cdot)$$ (as defined in \path{define_dynamics.m}), ````a```` a
 
 [^Risbeck2016]: Risbeck, M. J., & Rawlings, J. B. (2016). MPCTools: Nonlinear model predictive control tools for CasADi.
 
