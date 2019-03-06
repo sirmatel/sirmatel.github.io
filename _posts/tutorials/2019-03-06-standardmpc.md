@@ -94,7 +94,7 @@ function d = build_setup(d)
     
 end
 ````
-Here the use of -Inf and Inf indicates that the state is unconstrained, while the control input is constrained as $$-2 \leq u(t) \leq 2$$.
+Here the use of ````-Inf```` and ````Inf```` indicates that the state is unconstrained, while the control input is constrained as $$-2 \leq u(t) \leq 2$$.
 
 We can create a simulator object, that will act as the plant within the simulation, as follows:
 ````matlab
@@ -106,7 +106,56 @@ function d = create_simulator(d)
     
 end
 ````
-Here the arguments are the dynamics $$f(\cdot)$$ (as defined in \path{define_dynamics.m}), ````a```` a
+Here the arguments are the dynamics $$f(\cdot)$$, sampling time $$T$$, and dimensions of the state and the control input. Note that, in the code, the structure ````d```` is the main structure containing everything, while the fields of ````d````, namely ````p````, ````s````, and ````c```` contain parameters, signals, and controller objects, respectively.
+
+We can build the nonlinear MPC with the following parts:
+
+a) Import the dynamics $$f(\cdot)$$:
+````matlab
+ode_casadi_NMPC = d.c.mpc.getCasadiFunc(...
+        @define_dynamics, ...
+        [d.p.n_x, d.p.n_u], ...
+        {'x', 'u'});
+````
+
+b) Specify how $f(\cdot)$ should be discretized in time to get $x(k+1) = F(x(k),u(k))$ by creating the function $F(\cdot)$:
+````matlab
+F = d.c.mpc.getCasadiFunc(...
+        ode_casadi_NMPC, ...
+        [d.p.n_x, d.p.n_u], ...
+        {'x', 'u'}, ...
+        'rk4', true(), ...
+        'Delta', d.p.T);
+````
+Here the arguments are dimensions of the state and control input, whether to use an explicit Runge-Kutta method or not, via setting ````'rk4'```` either ````true```` or ````false````, and the timestep ````'Delta'````.
+
+c) Considering a stage cost $l(\cdot)$ as follows
+
+$$
+\begin{equation}
+l(x(t),u(t)) = \norm{x(t)}^2_Q + \norm{u(t)}^2_P,
+\end{equation}
+$$
+
+with
+
+$$
+\begin{equation}
+Q = \begin{bmatrix}
+    0.5 ~ 0 \\
+    0 ~ 0.5
+  \end{bmatrix} \qquad R = 1,
+\end{equation}
+$$
+
+we create $l(\cdot)$ in code as follows:
+````matlab
+function l = define_stage_cost(x,u)
+    
+    l = x'*[0.5 0;0 0.5]*x + u^2;
+    
+end
+````
 
 [^Risbeck2016]: Risbeck, M. J., & Rawlings, J. B. (2016). MPCTools: Nonlinear model predictive control tools for CasADi.
 
