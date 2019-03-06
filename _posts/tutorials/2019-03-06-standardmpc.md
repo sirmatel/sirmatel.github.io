@@ -129,11 +129,11 @@ F = d.c.mpc.getCasadiFunc(...
 ````
 Here the arguments are dimensions of the state and control input, whether to use an explicit Runge-Kutta method or not, via setting ````'rk4'```` either ````true```` or ````false````, and the timestep ````'Delta'````.
 
-c) Considering a stage cost $l(\cdot)$ as follows
+c) Considering a stage cost $$l(\cdot)$$ as follows
 
 $$
 \begin{equation}
-l(x(t),u(t)) = \norm{x(t)}^2_Q + \norm{u(t)}^2_P,
+l(x(t),u(t)) = \left\lVert x(t) \right\rVert^2_Q + \left\lVert u(t) \right\rVert^2_P,
 \end{equation}
 $$
 
@@ -148,7 +148,7 @@ Q = \begin{bmatrix}
 \end{equation}
 $$
 
-we create $l(\cdot)$ in code as follows:
+we create $$l(\cdot)$$ in code as follows:
 ````matlab
 function l = define_stage_cost(x,u)
     
