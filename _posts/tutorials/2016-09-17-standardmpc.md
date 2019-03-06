@@ -1,6 +1,6 @@
 ---
 layout: single
-category: tutorials
+category: tutorial
 author_profile: false
 title: Implementing nonlinear model predictive control in MATLAB with MPCTools
 tags: [control,nonlinear MPC,simulation]
