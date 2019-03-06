@@ -157,6 +157,143 @@ function l = define_stage_cost(x,u)
 end
 ````
 
+d) Considering terminal cost $$V_f$$ and terminal state constraint $$e_f$$ (as, for example, required by the quasi-infinite horizon nonlinear MPC method\cite{chen1998quasi} for guaranteeing closed-loop stability) as follows:
+
+$$
+\begin{align}
+V_f & = \norm{x}^2_P \\
+e_f & = x^T P x - \alpha \leq 0,
+\end{align}
+$$
+
+with
+
+$$
+\begin{equation}
+P = \begin{bmatrix}
+    16.5926 ~ 11.5926 \\
+    11.5926 ~ 16.5926
+  \end{bmatrix} \qquad \alpha = 0.7,
+\end{equation}
+$$
+
+we create $$V_f(\cdot)$$ and $$e_f(\cdot)$$ in code as follows:
+````matlab
+function Vf = define_terminal_cost(x)
+    
+    Vf = x'*[16.5926 11.5926;11.5926 16.5926]*x;
+    
+end
+````
+````matlab
+function ef = define_terminal_constraint(x)
+    
+    ef = x'*[16.5926 11.5926;11.5926 16.5926]*x - 0.7;
+    
+end
+````
+
+We can finally create the nonlinear model predictive controller as follows:
+````matlab
+function d = create_NMPC(d)
+    
+    % import dynamics
+    ode_casadi_NMPC = d.c.mpc.getCasadiFunc(...
+        @define_dynamics, ...
+        [d.p.n_x, d.p.n_u], ...
+        {'x', 'u'});
+    
+    % discretize dynamics in time
+    F = d.c.mpc.getCasadiFunc(...
+        ode_casadi_NMPC, ...
+        [d.p.n_x, d.p.n_u], ...
+        {'x', 'u'}, ...
+        'rk4', true(), ...
+        'Delta', d.p.T);
+    
+    % define stage cost
+    l = d.c.mpc.getCasadiFunc(@define_stage_cost, ...
+        [d.p.n_x, d.p.n_u], ...
+        {'x', 'u'});
+    
+    % define terminal cost
+    Vf = d.c.mpc.getCasadiFunc(@define_terminal_cost, ...
+        d.p.n_x, {'x'}, {'Vf'});
+    
+    % define terminal state constraint
+    ef = d.c.mpc.getCasadiFunc(@define_terminal_constraint, ...
+        d.p.n_x, {'x'}, {'ef'});
+    
+    % define NMPC arguments
+    commonargs.l = l;
+    commonargs.lb.x = d.p.x_min_v;
+    commonargs.ub.x = d.p.x_max_v;
+    commonargs.lb.u = d.p.u_min_v;
+    commonargs.ub.u = d.p.u_max_v;
+    commonargs.Vf = Vf;
+    commonargs.ef = ef;
+    
+    % define NMPC problem dimensions
+    N.x = d.p.n_x; % state dimension
+    N.u = d.p.n_u; % control input dimension
+    N.t = d.p.N_NMPC; % time dimension (i.e., prediction horizon)
+    
+    % create NMPC solver
+    d.c.solvers.NMPC = d.c.mpc.nmpc(...
+        'f', F, ... % dynamics (discrete-time)
+        'N', N, ... % problem dimensions
+        'Delta', d.p.T, ... % timestep
+        'timelimit', 1, ... % solver time limit (in seconds)
+        '**', commonargs); % arguments
+    
+end
+````
+
+Furthermore, for calling the NMPC during simulation, we need
+````matlab
+function d = solve_NMPC(d,t)
+    
+    % set state at time t as NMPC initial state
+    d.c.solvers.NMPC.fixvar('x', 1, d.s.x(:,t));
+    
+    tic_c = tic;
+    
+    % solve NMPC problem
+    d.c.solvers.NMPC.solve();
+    
+    % record CPU time
+    d.s.CPU_time(t,1) = toc(tic_c);
+    
+    % assign first element of the solution to the NMPC
+    % problem as the control input at time t
+    d.s.u(:,t) = d.c.solvers.NMPC.var.u(:,1);
+    
+    % record the predicted state trajectory
+    % for the first time step
+    if t == 1
+        
+        d.p.x_NMPC_t_1 = d.c.solvers.NMPC.var.x;
+        
+    end
+    
+end
+````
+and to simulate the dynamical system we need
+````matlab
+function d = evolve_dynamics(d,t)
+    
+    d.s.x(:,t+1) = ...
+        full(d.c.simulator(d.s.x(:,t), d.s.u(:,t)));
+    
+end
+````
+
+All pieces are integrated in the function <a href="https://sirmatel.github.io/assets/files/implement_NMPC_MPCTools.m" style="color: #2d5a8c; text-decoration:underline">implement_NMPC_MPCTools.m</a>, which can be run by executing the command
+````d = implement_NMPC_MPCTools(-0.7,-0.85)````
+from the MATLAB command window. The arguments here (i.e., $-0.7$ and $-0.85$) are elements of the initial state vector. After the simulation is finished, the results should appear as a structure named ````d```` in the MATLAB workspace. A figure summarizing the results, including the state and control input trajectories, can be produced using the function <a href="https://sirmatel.github.io/assets/files/plot_results.m" style="color: #2d5a8c; text-decoration:underline">plot_results.m</a> by executing the command
+````plot_results(d)````
+the MATLAB command window. The resulting figure is given below.
+
 [^Risbeck2016]: Risbeck, M. J., & Rawlings, J. B. (2016). MPCTools: Nonlinear model predictive control tools for CasADi.
 
 [^Andersson2018]: Andersson, J. A., Gillis, J., Horn, G., Rawlings, J. B., & Diehl, M. (2018). CasADi: a software framework for nonlinear optimization and optimal control. Mathematical Programming Computation, 1-36.
