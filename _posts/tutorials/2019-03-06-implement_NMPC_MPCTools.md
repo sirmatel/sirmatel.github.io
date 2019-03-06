@@ -296,7 +296,7 @@ from the MATLAB command window. The arguments here (i.e., $$-0.7$$ and $$-0.85$$
 
 ````plot_results(d)````
 
-the MATLAB command window. The resulting figure is given below.
+from the MATLAB command window. The resulting figure is given below.
 
 ![implement NMPC with MPCTools, results]({{ site.url }}/images/implement_NMPC_MPCTools_results.png){: .center-image }
 
