@@ -26,6 +26,7 @@ $$
 & \quad e_f(x(t+T_p)) \leq 0,
 \end{aligned}
 $$
+where $$T_p$$ is the prediction horizon (in time units), $l(\cdot)$ is the stage cost, $x \in \mathbb{R}^n$ is the state vector, $u \in \mathbb{R}^m$ is the control input vector, $V_f(\cdot)$ is the terminal cost, $\hat{x}(t)$ is the measurement, $f(\cdot)$ is the dynamics, $x_{\text{min}}$ and $x_{\text{max}}$ are state constraints, $u_{\text{min}}$ and $u_{\text{max}}$ are control input constraints, while $e_f$ is the terminal state constraint.
 
 [^Risbeck2016]: Risbeck, M. J., & Rawlings, J. B. (2016). MPCTools: Nonlinear model predictive control tools for CasADi.
 
