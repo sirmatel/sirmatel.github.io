@@ -3,11 +3,11 @@ main:
 #  - title: "Home"
 #    url: /home
     
-  - title: "Publications"
+  - title: "publications"
     url: /publications
     
-#  - title: "Examples"
-#    url: /examples
+  - title: "tutorials"
+    url: /tutorials
  
 examples:
   - title: Control
