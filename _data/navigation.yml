@@ -13,4 +13,4 @@ tutorials:
   - title: control
     children:
       - title: "Nonlinear MPC with MPCTools"
-        url: /tutorials/implement_NMPC_MPCTools
+        url: /tutorial/implement_NMPC_MPCTools
