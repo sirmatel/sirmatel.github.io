@@ -118,7 +118,7 @@ ode_casadi_NMPC = d.c.mpc.getCasadiFunc(...
         {'x', 'u'});
 ````
 
-b) Specify how $f(\cdot)$ should be discretized in time to get $x(k+1) = F(x(k),u(k))$ by creating the function $F(\cdot)$:
+b) Specify how $$f(\cdot)$$ should be discretized in time to get $$x(k+1) = F(x(k),u(k))$$ by creating the function $$F(\cdot)$$:
 ````matlab
 F = d.c.mpc.getCasadiFunc(...
         ode_casadi_NMPC, ...
@@ -133,7 +133,7 @@ c) Considering a stage cost $$l(\cdot)$$ as follows
 
 $$
 \begin{equation}
-l(x(t),u(t)) = \left\lVert x(t) \right\rVert^2_Q + \left\lVert u(t) \right\rVert^2_P,
+l(x(t),u(t)) = \left\lVert x(t) \right\rVert^2_Q + \left\lVert u(t) \right\rVert^2_R,
 \end{equation}
 $$
 
@@ -157,11 +157,11 @@ function l = define_stage_cost(x,u)
 end
 ````
 
-d) Considering terminal cost $$V_f$$ and terminal state constraint $$e_f$$ (as, for example, required by the quasi-infinite horizon nonlinear MPC method\cite{chen1998quasi} for guaranteeing closed-loop stability) as follows:
+d) Considering terminal cost $$V_f$$ and terminal state constraint $$e_f$$ (as, for example, required by the quasi-infinite horizon nonlinear MPC method[^Chen1998] for guaranteeing closed-loop stability) as follows:
 
 $$
 \begin{align}
-V_f & = \norm{x}^2_P \\
+V_f & = \left\lVert x \right\rVert^2_P \\
 e_f & = x^T P x - \alpha \leq 0,
 \end{align}
 $$
@@ -289,9 +289,13 @@ end
 ````
 
 All pieces are integrated in the function <a href="https://sirmatel.github.io/assets/files/implement_NMPC_MPCTools.m" style="color: #2d5a8c; text-decoration:underline">implement_NMPC_MPCTools.m</a>, which can be run by executing the command
+
 ````d = implement_NMPC_MPCTools(-0.7,-0.85)````
-from the MATLAB command window. The arguments here (i.e., $-0.7$ and $-0.85$) are elements of the initial state vector. After the simulation is finished, the results should appear as a structure named ````d```` in the MATLAB workspace. A figure summarizing the results, including the state and control input trajectories, can be produced using the function <a href="https://sirmatel.github.io/assets/files/plot_results.m" style="color: #2d5a8c; text-decoration:underline">plot_results.m</a> by executing the command
+
+from the MATLAB command window. The arguments here (i.e., $$-0.7$$ and $$-0.85$$) are elements of the initial state vector. After the simulation is finished, the results should appear as a structure named ````d```` in the MATLAB workspace. A figure summarizing the results, including the state and control input trajectories, can be produced using the function <a href="https://sirmatel.github.io/assets/files/plot_results.m" style="color: #2d5a8c; text-decoration:underline">plot_results.m</a> by executing the command
+
 ````plot_results(d)````
+
 the MATLAB command window. The resulting figure is given below.
 
 ![implement NMPC with MPCTools, results]({{ site.url }}/images/implement_NMPC_MPCTools_results.png){: .center-image }
