@@ -14,6 +14,20 @@ sidebar:
 
 In this tutorial we will attempt to create nonlinear model predictive control (MPC) code in MATLAB using MPCTools. We will need MATLAB (version R2015b or higher), <a href="https://bitbucket.org/rawlings-group/octave-mpctools/overview" style="color: #2d5a8c; text-decoration:underline">MPCTools</a>[^Risbeck2016] (a free Octave/MATLAB toolbox for nonlinear MPC), and <a href="https://web.casadi.org/" style="color: #2d5a8c; text-decoration:underline">CasADi</a>[^Andersson2018] (version 3.1 or higher) (a free Python/MATLAB toolbox for nonlinear optimization and numerical optimal control).
 
+We consider the following nonlinear MPC formulation:
+\begin{equation*}
+\label{eq:prob_mpc}
+\begin{aligned}
+\minimize_{u(\cdot)} & \quad \int_{t}^{t+T_p}{l(x(\tau),u(\tau))d\tau} + V_f(x(t+T_p))\\
+\subjectto & \quad x(t) = \hat{x}(t) \\
+& \quad \text{for } \tau \in [t, t+T_p]: \\
+& \qquad \dot{x}(\tau) = f(x(\tau),u(\tau)) \\
+& \qquad x_{\text{min}} \leq x(\tau) \leq x_{\text{max}} \\
+& \qquad u_{\text{min}} \leq u(\tau) \leq u_{\text{max}} \\
+& \quad e_f(x(t+T_p)) \leq 0,
+\end{aligned}
+\end{equation*}
+
 [^Risbeck2016]: Risbeck, M. J., & Rawlings, J. B. (2016). MPCTools: Nonlinear model predictive control tools for CasADi.
 
 [^Andersson2018]: Andersson, J. A., Gillis, J., Horn, G., Rawlings, J. B., & Diehl, M. (2018). CasADi: a software framework for nonlinear optimization and optimal control. Mathematical Programming Computation, 1-36.
