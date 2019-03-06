@@ -9,12 +9,8 @@ main:
   - title: "tutorials"
     url: /tutorials
  
-examples:
-  - title: Control
+tutorials:
+  - title: control
     children:
-      - title: "MPC - basics"
-        url: /example/standardmpc   
-  - title: Geometry
-    children:  
-      - title: "Polytopic geometry"
-        url: /example/polytopicgeometry      
+      - title: "Nonlinear MPC with MPCTools"
+        url: /tutorials/implement_NMPC_MPCTools
