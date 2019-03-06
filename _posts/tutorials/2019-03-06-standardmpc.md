@@ -6,7 +6,7 @@ title: Implementing nonlinear model predictive control in MATLAB with MPCTools
 tags: [control,nonlinear MPC,simulation]
 comments: true
 header:
-  teaser: "NMPC_MPCTools.jpg"
+  teaser: "implement_NMPC_MPCTools.png"
 date: '2019-03-06'
 sidebar:
   nav: "tutorials"
@@ -293,6 +293,8 @@ All pieces are integrated in the function <a href="https://sirmatel.github.io/as
 from the MATLAB command window. The arguments here (i.e., $-0.7$ and $-0.85$) are elements of the initial state vector. After the simulation is finished, the results should appear as a structure named ````d```` in the MATLAB workspace. A figure summarizing the results, including the state and control input trajectories, can be produced using the function <a href="https://sirmatel.github.io/assets/files/plot_results.m" style="color: #2d5a8c; text-decoration:underline">plot_results.m</a> by executing the command
 ````plot_results(d)````
 the MATLAB command window. The resulting figure is given below.
+
+({{ site.url }}/images/implement_NMPC_MPCTools_results.png){: .center-image }
 
 [^Risbeck2016]: Risbeck, M. J., & Rawlings, J. B. (2016). MPCTools: Nonlinear model predictive control tools for CasADi.
 
