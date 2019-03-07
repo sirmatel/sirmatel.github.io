@@ -298,9 +298,9 @@ defaults:
       level: 4
       layout: single
       author_profile: false
-      read_time: false
+      read_time: true
       comments: true
-      share: false
+      share: true
       related: true 
   # references
   - scope:
