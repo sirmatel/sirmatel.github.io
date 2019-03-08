@@ -292,9 +292,9 @@ All pieces are integrated in the function <a href="https://sirmatel.github.io/as
 
 ````d = implement_NMPC_MPCTools(-0.7,-0.85)````
 
-from the MATLAB command window. The arguments here (i.e., $$-0.7$$ and $$-0.85$$) are elements of the initial state vector. After the simulation is finished, the results should appear as a structure named ````d```` in the MATLAB workspace. A figure summarizing the results, including the state and control input trajectories, can be produced using the function <a href="https://sirmatel.github.io/assets/files/plot_results.m" style="color: #2d5a8c">plot_results.m</a> by executing the command
+from the MATLAB command window. The arguments here (i.e., $$-0.7$$ and $$-0.85$$) are elements of the initial state vector. After the simulation is finished, the results should appear as a structure named ````d```` in the MATLAB workspace. A figure summarizing the results, including the state and control input trajectories, can be produced using the function <a href="https://sirmatel.github.io/assets/files/plot_results_NMPC.m" style="color: #2d5a8c">plot_results_NMPC.m</a> by executing the command
 
-````plot_results(d)````
+````plot_results_NMPC(d)````
 
 from the MATLAB command window. The resulting figure is given below.
 
