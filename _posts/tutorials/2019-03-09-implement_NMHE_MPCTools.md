@@ -26,7 +26,7 @@ $$
 \end{aligned}
 $$
 
-where $$T_e$$ is the estimation horizon (in time units), $$w \in \mathbb{R}^{n_w}$$ is the process noise, $$v \in \mathbb{R}^{n_v}$$ is the measurement noise, $$x \in \mathbb{R}^{n_x}$$ is the state, $$f(\cdot)$$ is the dynamics, $$\hat{y}(t)$$ is the measurement, while $$x_{\text{min}}$$ and $$x_{\text{max}}$$ are state constraints.
+where $$T_e$$ is the estimation horizon (in time units), $$w \in \mathbb{R}^{n_w}$$ is the process noise, $$v \in \mathbb{R}^{n_v}$$ is the measurement noise, $$Q$$ and $$R$$ are inverse covariance matrices of the process and measurement noise, respectively, $$x \in \mathbb{R}^{n_x}$$ is the state, $$f(\cdot)$$ is the dynamics, $$\hat{y}$$ is the measurement, while $$x_{\text{min}}$$ and $$x_{\text{max}}$$ are state constraints.
 
 As an example, we take the Van der Pol oscillator:
 
@@ -103,7 +103,7 @@ function d = build_setup(d)
     % measurement noise inverse covariance
     d.p.R = d.c.mpc.spdinv(d.p.Sigma_v);
     
-	% set random number generator seed to 0
+    % set random number generator seed to 0
     rng(0)
 	
     % create process noise signal
