@@ -14,3 +14,7 @@ tutorials:
     children:
       - title: "Nonlinear MPC with MPCTools"
         url: /tutorial/implement_NMPC_MPCTools
+  - title: estimation
+    children:
+      - title: "Nonlinear MHE with MPCTools"
+        url: /tutorial/implement_NMHE_MPCTools
