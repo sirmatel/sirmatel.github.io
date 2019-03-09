@@ -21,14 +21,14 @@ $$
 \text{minimize} & \quad \int_{t-T_e}^{t}{\left\lVert w(\tau) \right\rVert^2_Q + \left\lVert v(\tau) \right\rVert^2_R} d\tau \\
 \text{subject to} & \quad \text{for } \tau \in [t-T_e, t]: \\
 & \qquad \dot{x}(\tau) = f(x(\tau)) + w(\tau) \\
-& \qquad \hat{y}(\tau) = h(x(\tau)) + v(\tau) \\
+& \qquad y(\tau) = h(x(\tau)) + v(\tau) \\
 & \qquad x_{\text{min}} \leq x(\tau) \leq x_{\text{max}},
 \end{aligned}
 $$
 
-where $$T_e$$ is the estimation horizon (in time units), $$w \in \mathbb{R}^{n_w}$$ is the process noise, $$v \in \mathbb{R}^{n_v}$$ is the measurement noise, $$Q$$ and $$R$$ are inverse covariance matrices of the process and measurement noise, respectively, $$x \in \mathbb{R}^{n_x}$$ is the state, $$f(\cdot)$$ is the dynamics, $$\hat{y}$$ is the measurement, while $$x_{\text{min}}$$ and $$x_{\text{max}}$$ are state constraints.
+where $$T_e$$ is the estimation horizon (in time units), $$w \in \mathbb{R}^{n_w}$$ is the process noise, $$v \in \mathbb{R}^{n_v}$$ is the measurement noise, $$Q$$ and $$R$$ are inverse covariance matrices of the process and measurement noise, respectively, $$x \in \mathbb{R}^{n_x}$$ is the state, $$f(\cdot)$$ is the dynamics, $$y \in \mathbb{R}^{n_y}$$ is the measurement, while $$x_{\text{min}}$$ and $$x_{\text{max}}$$ are state constraints.
 
-As an example, we take the Van der Pol oscillator:
+As an example, we take the van der Pol oscillator:
 
 $$
 \begin{aligned}
