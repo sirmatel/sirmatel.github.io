@@ -1,6 +1,6 @@
 ---
 layout: single
-category: tutorial
+category: blog
 author_profile: false
 title: Implementing nonlinear moving horizon estimation in MATLAB with MPCTools
 tags: [estimation,nonlinear MHE,simulation]
@@ -9,10 +9,10 @@ header:
   teaser: "implement_NMHE_MPCTools.png"
 date: '2019-03-09'
 sidebar:
-  nav: "tutorials"
+  nav: "blog"
 ---
 
-In this tutorial we will attempt to create nonlinear moving horizon estimation (MHE) code in MATLAB using MPCTools. We will need MATLAB (version R2015b or higher), <a href="https://bitbucket.org/rawlings-group/octave-mpctools/overview" style="color: #2d5a8c; text-decoration:underline">MPCTools</a>[^Risbeck2016] (a free Octave/MATLAB toolbox for nonlinear MPC), and <a href="https://web.casadi.org/" style="color: #2d5a8c; text-decoration:underline">CasADi</a>[^Andersson2018] (version 3.1 or higher) (a free Python/MATLAB toolbox for nonlinear optimization and numerical optimal control). MPCTools calls <a href="https://projects.coin-or.org/Ipopt" style="color: #2d5a8c; text-decoration:underline">Ipopt</a>[^Waechter2006] for solving the resulting nonlinear optimization problems. You can download the code created in this tutorial here: <a href="https://sirmatel.github.io/assets/files/implement_NMHE_MPCTools.m" style="color: #2d5a8c; text-decoration:underline">implement_NMHE_MPCTools.m</a>.
+In this post we will attempt to create nonlinear moving horizon estimation (MHE) code in MATLAB using MPCTools. We will need MATLAB (version R2015b or higher), <a href="https://bitbucket.org/rawlings-group/octave-mpctools/overview" style="color: #2d5a8c; text-decoration:underline">MPCTools</a>[^Risbeck2016] (a free Octave/MATLAB toolbox for nonlinear MPC), and <a href="https://web.casadi.org/" style="color: #2d5a8c; text-decoration:underline">CasADi</a>[^Andersson2018] (version 3.1 or higher) (a free Python/MATLAB toolbox for nonlinear optimization and numerical optimal control). MPCTools calls <a href="https://projects.coin-or.org/Ipopt" style="color: #2d5a8c; text-decoration:underline">Ipopt</a>[^Waechter2006] for solving the resulting nonlinear optimization problems. You can download the code created in this post here: <a href="https://sirmatel.github.io/assets/files/implement_NMHE_MPCTools.m" style="color: #2d5a8c; text-decoration:underline">implement_NMHE_MPCTools.m</a>.
 
 We consider the following nonlinear MHE formulation:
 
