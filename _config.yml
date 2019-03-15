@@ -120,10 +120,10 @@ include:
   - _pages
   - _posts
   - _posts/examples
-  - _posts/tutorials
+  - _posts/blog
   - _posts/solvers
   - _examples
-  - _tutorials
+  - _blog
   - _commands
   - _solvers
   - docs
@@ -260,7 +260,7 @@ collections:
   examples:
     output: true
     permalink: /:collection/:path/
-  tutorials:
+  blog:
     output: true
     permalink: /:collection/:path/    
   references:
@@ -290,10 +290,10 @@ defaults:
       comments: true
       share: false
       related: true      
-  # _tutorials
+  # _blog
   - scope:
       path: ""
-      type: tutorials
+      type: blog
     values:
       level: 4
       layout: single
@@ -305,7 +305,7 @@ defaults:
   # references
   - scope:
       path: ""
-      type: tutorials
+      type: blog
     values:
       layout: single
       author_profile: false
