@@ -1,9 +1,9 @@
 ---
 layout: archive
 author_profile: false
-permalink: /tutorials/
+permalink: /blog/
 sidebar:
-  nav: "tutorials"
+  nav: "blog"
 ---
 
 {% include base_path %}
@@ -12,7 +12,7 @@ sidebar:
 
 {% assign items = site.posts | sort: 'level' %}
 {% for post in items %}
-{% if post.category == "tutorial" %}
+{% if post.category == "blog" %}
   {% include archive-single.html type="grid" %}      
 {% endif %}
 {% endfor %}
