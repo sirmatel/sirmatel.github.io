@@ -6,15 +6,15 @@ main:
   - title: "publications"
     url: /publications
     
-  - title: "tutorials"
-    url: /tutorials
+  - title: "blog"
+    url: /blog
  
-tutorials:
+blog:
   - title: control
     children:
-      - title: "Nonlinear MPC with MPCTools"
-        url: /tutorial/implement_NMPC_MPCTools
+      - title: "Nonlinear MPC in MATLAB with MPCTools"
+        url: /blog/implement_NMPC_MPCTools
   - title: estimation
     children:
-      - title: "Nonlinear MHE with MPCTools"
-        url: /tutorial/implement_NMHE_MPCTools
+      - title: "Nonlinear MHE in MATLAB with MPCTools"
+        url: /blog/implement_NMHE_MPCTools
