@@ -3,7 +3,7 @@ layout: single
 category: blog
 author_profile: false
 title: Nonlinear moving horizon estimation in MATLAB with MPCTools
-tags: [estimation,nonlinear MHE,simulation]
+tags: [state estimation,nonlinear MHE,simulation]
 comments: true
 header:
   teaser: "implement_NMHE_MPCTools.png"
