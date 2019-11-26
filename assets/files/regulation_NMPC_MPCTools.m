@@ -1,4 +1,4 @@
-function d = implement_NMPC_MPCTools(x1_0,x2_0)
+function d = regulation_NMPC_MPCTools(x1_0,x2_0)
     
     d.c.mpc = import_mpctools();
     
