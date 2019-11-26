@@ -12,7 +12,7 @@ sidebar:
   nav: "blog"
 ---
 
-In this post we will attempt to create nonlinear model predictive control (MPC) code for the regulation problem (i.e., steering the state to a fixed equilibrium and keeping it there) in MATLAB using MPCTools. We will need MATLAB (version R2015b or higher), <a href="https://bitbucket.org/rawlings-group/octave-mpctools/overview" style="color: #2d5a8c">MPCTools</a>[^Risbeck2016] (a free Octave/MATLAB toolbox for nonlinear MPC), and <a href="https://web.casadi.org/" style="color: #2d5a8c">CasADi</a>[^Andersson2018] (version 3.1 or higher) (a free Python/MATLAB toolbox for nonlinear optimization and numerical optimal control). MPCTools calls <a href="https://projects.coin-or.org/Ipopt" style="color: #2d5a8c">Ipopt</a>[^Waechter2006] for solving the resulting nonlinear optimization problems. You can download the code created in this post here: <a href="https://sirmatel.github.io/assets/files/implement_NMPC_MPCTools.m" style="color: #2d5a8c">implement_NMPC_MPCTools.m</a>.
+In this post we will attempt to create nonlinear model predictive control (MPC) code for the regulation problem (i.e., steering the state to a fixed equilibrium and keeping it there) in MATLAB using MPCTools. We will need MATLAB (version R2015b or higher), <a href="https://bitbucket.org/rawlings-group/octave-mpctools/overview" style="color: #2d5a8c">MPCTools</a>[^Risbeck2016] (a free Octave/MATLAB toolbox for nonlinear MPC), and <a href="https://web.casadi.org/" style="color: #2d5a8c">CasADi</a>[^Andersson2018] (version 3.1 or higher) (a free Python/MATLAB toolbox for nonlinear optimization and numerical optimal control). MPCTools calls <a href="https://projects.coin-or.org/Ipopt" style="color: #2d5a8c">Ipopt</a>[^Waechter2006] for solving the resulting nonlinear optimization problems. You can download the code created in this post here: <a href="https://sirmatel.github.io/assets/files/regulation_NMPC_MPCTools.m" style="color: #2d5a8c">regulation_NMPC_MPCTools.m</a>.
 
 We consider the following nonlinear MPC formulation:
 
@@ -288,7 +288,7 @@ function d = evolve_dynamics(d,t)
 end
 ````
 
-All pieces are integrated in the function <a href="https://sirmatel.github.io/assets/files/implement_NMPC_MPCTools.m" style="color: #2d5a8c">implement_NMPC_MPCTools.m</a>, which can be run by executing the command
+All pieces are integrated in the function <a href="https://sirmatel.github.io/assets/files/regulation_NMPC_MPCTools.m" style="color: #2d5a8c">implement_NMPC_MPCTools.m</a>, which can be run by executing the command
 
 ````d = implement_NMPC_MPCTools(-0.7,-0.85)````
 
