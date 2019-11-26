@@ -288,7 +288,7 @@ function d = evolve_dynamics(d,t)
 end
 ````
 
-All pieces are integrated in the function <a href="https://sirmatel.github.io/assets/files/regulation_NMPC_MPCTools.m" style="color: #2d5a8c">implement_NMPC_MPCTools.m</a>, which can be run by executing the command
+All pieces are integrated in the function <a href="https://sirmatel.github.io/assets/files/regulation_NMPC_MPCTools.m" style="color: #2d5a8c">regulation_NMPC_MPCTools.m</a>, which can be run by executing the command
 
 ````d = regulation_NMPC_MPCTools(-0.7,-0.85)````
 
