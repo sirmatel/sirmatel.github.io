@@ -2,7 +2,7 @@
 layout: single
 category: blog
 author_profile: false
-title: Implementing nonlinear moving horizon estimation in MATLAB with MPCTools
+title: Nonlinear moving horizon estimation in MATLAB with MPCTools
 tags: [estimation,nonlinear MHE,simulation]
 comments: true
 header:
@@ -12,7 +12,7 @@ sidebar:
   nav: "blog"
 ---
 
-In this post we will attempt to create nonlinear moving horizon estimation (MHE) code in MATLAB using MPCTools. We will need MATLAB (version R2015b or higher), <a href="https://bitbucket.org/rawlings-group/octave-mpctools/overview" style="color: #2d5a8c; text-decoration:underline">MPCTools</a>[^Risbeck2016] (a free Octave/MATLAB toolbox for nonlinear MPC), and <a href="https://web.casadi.org/" style="color: #2d5a8c; text-decoration:underline">CasADi</a>[^Andersson2018] (version 3.1 or higher) (a free Python/MATLAB toolbox for nonlinear optimization and numerical optimal control). MPCTools calls <a href="https://projects.coin-or.org/Ipopt" style="color: #2d5a8c; text-decoration:underline">Ipopt</a>[^Waechter2006] for solving the resulting nonlinear optimization problems. You can download the code created in this post here: <a href="https://sirmatel.github.io/assets/files/implement_NMHE_MPCTools.m" style="color: #2d5a8c; text-decoration:underline">implement_NMHE_MPCTools.m</a>.
+In this post we will attempt to create nonlinear moving horizon estimation (MHE) code in MATLAB using MPCTools. We will need MATLAB (version R2015b or higher), <a href="https://bitbucket.org/rawlings-group/octave-mpctools/overview" style="color: #2d5a8c; text-decoration:underline">MPCTools</a>[^Risbeck2016] (a free Octave/MATLAB toolbox for nonlinear MPC), and <a href="https://web.casadi.org/" style="color: #2d5a8c; text-decoration:underline">CasADi</a>[^Andersson2018] (version 3.1 or higher) (a free Python/MATLAB toolbox for nonlinear optimization and numerical optimal control). MPCTools calls <a href="https://projects.coin-or.org/Ipopt" style="color: #2d5a8c; text-decoration:underline">Ipopt</a>[^Waechter2006] for solving the resulting nonlinear optimization problems. You can download the code created in this post here: <a href="https://sirmatel.github.io/assets/files/NMHE_MPCTools.m" style="color: #2d5a8c; text-decoration:underline">NMHE_MPCTools.m</a>.
 
 We consider the following nonlinear MHE formulation:
 
@@ -217,9 +217,9 @@ function d = evolve_dynamics(d,t)
 end
 ````
 
-All pieces are integrated in the function <a href="https://sirmatel.github.io/assets/files/implement_NMHE_MPCTools.m" style="color: #2d5a8c; text-decoration:underline">implement_NMHE_MPCTools.m</a>, which can be run by executing the command
+All pieces are integrated in the function <a href="https://sirmatel.github.io/assets/files/NMHE_MPCTools.m" style="color: #2d5a8c; text-decoration:underline">NMHE_MPCTools.m</a>, which can be run by executing the command
 
-````d = implement_NMHE_MPCTools(1.5,1.5)````
+````d = NMHE_MPCTools(1.5,1.5)````
 
 from the MATLAB command window. The arguments here (i.e., $$1.5$$) are elements of the initial state vector. After the simulation is finished, the results should appear as a structure named ````d```` in the MATLAB workspace. A figure summarizing the results, including the state and control input trajectories, can be produced using the function <a href="https://sirmatel.github.io/assets/files/plot_results_NMHE.m" style="color: #2d5a8c; text-decoration:underline">plot_results_NMHE.m</a> by executing the command
 
