@@ -1,4 +1,4 @@
-function d = implement_NMHE_MPCTools(x1_0,x2_0)
+function d = NMHE_MPCTools(x1_0,x2_0)
     
     dbstop if error
     
