@@ -6,7 +6,7 @@ title: Nonlinear model predictive control (regulation) in MATLAB with MPCTools
 tags: [control,regulation,nonlinear MPC,simulation]
 comments: true
 header:
-  teaser: "implement_NMPC_MPCTools.png"
+  teaser: "regulation_NMPC_MPCTools.png"
 date: '2019-03-06'
 sidebar:
   nav: "blog"
@@ -298,7 +298,7 @@ from the MATLAB command window. The arguments here (i.e., $$-0.7$$ and $$-0.85$$
 
 from the MATLAB command window. The resulting figure is given below.
 
-![implement NMPC with MPCTools, results]({{ site.url }}/images/implement_NMPC_MPCTools_results.png){: .center-image }
+![regulation NMPC with MPCTools, results]({{ site.url }}/images/results_regulation_NMPC_MPCTools.png){: .center-image }
 
 [^Risbeck2016]: Risbeck, M. J., & Rawlings, J. B. (2016). MPCTools: Nonlinear model predictive control tools for CasADi.
 
