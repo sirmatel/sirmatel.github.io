@@ -6,7 +6,7 @@ title: Nonlinear moving horizon estimation in MATLAB with MPCTools
 tags: [state estimation,nonlinear MHE,simulation]
 comments: true
 header:
-  teaser: "implement_NMHE_MPCTools.png"
+  teaser: "NMHE_MPCTools.png"
 date: '2019-03-09'
 sidebar:
   nav: "blog"
@@ -227,7 +227,7 @@ from the MATLAB command window. The arguments here (i.e., $$1.5$$) are elements 
 
 from the MATLAB command window. The resulting figure is given below.
 
-![implement NMHE with MPCTools, results]({{ site.url }}/images/implement_NMHE_MPCTools_results.png){: .center-image }
+![NMHE with MPCTools, results]({{ site.url }}/images/results_NMHE_MPCTools.png){: .center-image }
 
 [^Risbeck2016]: Risbeck, M. J., & Rawlings, J. B. (2016). MPCTools: Nonlinear model predictive control tools for CasADi.
 
