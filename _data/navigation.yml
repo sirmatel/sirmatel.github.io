@@ -14,6 +14,8 @@ blog:
     children:
       - title: "Nonlinear MPC (regulation) in MATLAB with MPCTools"
         url: /blog/regulation_NMPC_MPCTools
+      - title: "Nonlinear MPC (regulation) in MATLAB with YALMIP"
+        url: /blog/regulation_NMPC_YALMIP
   - title: state estimation
     children:
       - title: "Nonlinear MHE in MATLAB with MPCTools"
