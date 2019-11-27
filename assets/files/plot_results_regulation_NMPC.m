@@ -1,4 +1,4 @@
-function plot_results_NMPC(d)
+function plot_results_regulation_NMPC(d)
     
     hFig = figure;
     
@@ -45,7 +45,7 @@ function plot_results_NMPC(d)
     box on
     plot(-1:1,zeros(size(-1:1)),'--k','LineWidth',1)
     plot(zeros(size(-1:1)),-1:1,'--k','LineWidth',1)
-    h1 = plot_ellipse([16.5926 11.5926;11.5926 16.5926],[0 0]',0.7);
+    h1 = plot_ellipse(d.p.P,[0 0]',d.p.alpha);
     h2 = plot(d.s.x(1,:),d.s.x(2,:),'Color',[0 0.447 0.741],'LineWidth',lw);
     h3 = plot(d.p.x_NMPC_t_1(1,:),d.p.x_NMPC_t_1(2,:),...
         'color',[0.466 0.674 0.188],'LineWidth',2);
