@@ -2,17 +2,19 @@
 layout: single
 category: blog
 author_profile: false
-title: Nonlinear model predictive control (regulation) in MATLAB with MPCTools
+title: Nonlinear model predictive control (regulation) in MATLAB with YALMIP
 tags: [control,regulation,nonlinear MPC,simulation]
 comments: true
 header:
   teaser: "implement_NMPC_MPCTools.png"
-date: '2019-03-06'
+date: '2019-11-27'
 sidebar:
   nav: "blog"
 ---
 
-In this post we will attempt to create nonlinear model predictive control (MPC) code for the regulation problem (i.e., steering the state to a fixed equilibrium and keeping it there) in MATLAB using MPCTools. We will need MATLAB (version R2015b or higher), <a href="https://bitbucket.org/rawlings-group/octave-mpctools/overview" style="color: #2d5a8c">MPCTools</a>[^Risbeck2016] (a free Octave/MATLAB toolbox for nonlinear MPC), and <a href="https://web.casadi.org/" style="color: #2d5a8c">CasADi</a>[^Andersson2018] (version 3.1 or higher) (a free Python/MATLAB toolbox for nonlinear optimization and numerical optimal control). MPCTools calls <a href="https://projects.coin-or.org/Ipopt" style="color: #2d5a8c">Ipopt</a>[^Waechter2006] for solving the resulting nonlinear optimization problems. You can download the code created in this post here: <a href="https://sirmatel.github.io/assets/files/regulation_NMPC_MPCTools.m" style="color: #2d5a8c">regulation_NMPC_MPCTools.m</a>.
+In this post we will attempt to create nonlinear model predictive control (MPC) code for the regulation problem (i.e., steering the state to a fixed equilibrium and keeping it there) in MATLAB using YALMIP. We will need MATLAB, <a href="https://yalmip.github.io/" style="color: #2d5a8c">YALMIP</a>[^Risbeck2016] (a free Octave/MATLAB toolbox for optimization modeling), and <a href="https://projects.coin-or.org/Ipopt" style="color: #2d5a8c">Ipopt</a>[^Waechter2006] (for solving the resulting nonlinear optimization problems). You can download the code created in this post here: <a href="https://sirmatel.github.io/assets/files/regulation_NMPC_YALMIP.m" style="color: #2d5a8c">regulation_NMPC_YALMIP.m</a>.
+
+Note: For MPC code with high computational efficiency, it is recommended that one uses either <a href="https://web.casadi.org/" style="color: #2d5a8c">CasADi</a>[^Andersson2018] or <a href="https://bitbucket.org/rawlings-group/octave-mpctools/overview" style="color: #2d5a8c">MPCTools</a>[^Risbeck2016].
 
 We consider the following nonlinear MPC formulation:
 
@@ -41,10 +43,12 @@ $$
 
 where $$x_1(t) \in \mathbb{R}$$ and $$x_2(t) \in \mathbb{R}$$ are the state variables, $$u(t) \in \mathbb{R}$$ is the control input, and $$\mu$$ is a parameter we assume to be $$0.5$$ here. In compact form we can write the dynamics as $$\dot{x}(t)=f(x(t),u(t))$$, which we can define in code as follows:
 ````matlab
-function dxdt = define_dynamics(x, u)
+function dxdt = define_dynamics(t,x,u)
     
-    dxdt = [x(2) + u*(0.5 + 0.5*x(1));
-        x(1) + u*(0.5 - 2*x(2))];
+    mu = 0.5;
+    
+    dxdt = [x(2) + u*(mu + (1-mu)*x(1)); ...
+        x(1) + u*(mu - 4*(1-mu)*x(2))];
     
 end
 ````
@@ -92,44 +96,64 @@ function d = build_setup(d)
     d.p.u_min_v = d.p.u_min*ones(d.p.n_u,1);
     d.p.u_max_v = d.p.u_max*ones(d.p.n_u,1);
     
+    % weighting matrices of stage cost
+    d.p.Q = 0.5*eye(d.p.n_x);
+    d.p.R = eye(d.p.n_u);
+    
+    % weighting matrix and bound for terminal cost and constraint
+    d.p.P = [16.5926 11.5926;11.5926 16.5926];
+    d.p.alpha = 0.7;
+    
 end
 ````
 Here the use of ````-Inf```` and ````Inf```` indicates that the state is unconstrained, while the control input is constrained as $$-2 \leq u(t) \leq 2$$.
 
-We can create a simulator object, that will act as the plant within the simulation, as follows:
+We can create a RK4 integrator, for use as both simulation model (to act as the plant within simulation) and prediction model (for the MPC predictions) as follows:
 ````matlab
-function d = create_simulator(d)
-
-    d.c.simulator = ...
-        d.c.mpc.getCasadiIntegrator(@define_dynamics, ...
-        d.p.T, [d.p.n_x, d.p.n_u], {'x', 'u'});
+function x_plus = F(f,x,u,h)
+    
+    % create RK4 integrator
+    k1 = f(0,x,u);
+    k2 = f(0,x+(h/2).*k1,u);
+    k3 = f(0,x+(h/2).*k2,u);
+    k4 = f(0,x+h.*k3,u);
+    x_plus = x + (h/6).*(k1+2*k2+2*k3+k4);
     
 end
 ````
-Here the arguments are the dynamics $$f(\cdot)$$, sampling time $$T$$, and dimensions of the state and the control input. Note that, in the code, the structure ````d```` is the main structure containing everything, while the fields of ````d````, namely ````p````, ````s````, and ````c```` contain parameters, signals, and controller objects, respectively.
 
 We can build the nonlinear MPC with the following parts:
 
-a) Import the dynamics $$f(\cdot)$$:
+a) Define the control input and state trajectories as decision variables
 ````matlab
-ode_casadi_NMPC = d.c.mpc.getCasadiFunc(...
-        @define_dynamics, ...
-        [d.p.n_x, d.p.n_u], ...
-        {'x', 'u'});
+% define control inputs as decision variables
+u = sdpvar(d.p.n_u,d.p.N_NMPC,'full');
+
+% define states as decision variables
+x = sdpvar(d.p.n_x,d.p.N_NMPC+1,'full');
 ````
 
-b) Specify how $$f(\cdot)$$ should be discretized in time to get $$x(k+1) = F(x(k),u(k))$$ by creating the function $$F(\cdot)$$:
+b) Initialize objective function and constraints:
 ````matlab
-F = d.c.mpc.getCasadiFunc(...
-        ode_casadi_NMPC, ...
-        [d.p.n_x, d.p.n_u], ...
-        {'x', 'u'}, ...
-        'rk4', true(), ...
-        'Delta', d.p.T);
-````
-Here the arguments are dimensions of the state and control input, whether to use an explicit Runge-Kutta method or not, via setting ````'rk4'```` either ````true```` or ````false````, and the timestep ````'Delta'````.
+% initialize objective function
+obj = 0;
 
-c) Considering a stage cost $$l(\cdot)$$ in line with the regulation problem (which thus expresses the objective of keeping the state $$x(t)$$ at the origin while also penalizing nonzero control inputs) as follows
+% initialize constraints
+con = [];
+````
+
+c) Use the RK4 integrator to form the predicted state trajectory
+````matlab
+for k = 1:d.p.N_NMPC
+    
+    % ensure continuity of state trajectory
+    % (i.e., direct multiple shooting)
+    con = [con, x(:,k+1) == F(@define_dynamics, x(:,k), u(:,k), d.p.T)];
+    
+end
+````
+
+d) Considering a stage cost $$l(\cdot)$$ in line with the regulation problem (which thus expresses the objective of keeping the state $$x(t)$$ at the origin while also penalizing nonzero control inputs) as follows
 
 $$
 \begin{equation}
@@ -148,16 +172,30 @@ Q = \begin{bmatrix}
 \end{equation}
 $$
 
-we create $$l(\cdot)$$ in code as follows:
+we create the objective function by summing over the stage costs
 ````matlab
-function l = define_stage_cost(x,u)
+for k = 1:d.p.N_NMPC
     
-    l = x'*[0.5 0;0 0.5]*x + u^2;
+    % add stage cost to objective function
+    obj = obj + x(:,k)'*d.p.Q*x(:,k) + u(:,k)'*d.p.R*u(:,k);
     
 end
 ````
 
-d) Considering terminal cost $$V_f$$ and terminal state constraint $$e_f$$ (as, for example, required by the quasi-infinite horizon nonlinear MPC method[^Chen1998] for guaranteeing closed-loop stability) as follows:
+e) Define control input and state constraints:
+````matlab
+for k = 1:d.p.N_NMPC
+    
+    % control input constraints
+    con = [con, d.p.u_min_v <= u(:,k) <= d.p.u_max_v];
+    
+    % state constraints
+    con = [con, d.p.x_min_v <= x(:,k) <= d.p.x_max_v];
+    
+end
+````
+
+f) Considering terminal cost $$V_f$$ and terminal state constraint $$e_f$$ (as, for example, required by the quasi-infinite horizon nonlinear MPC method[^Chen1998] for guaranteeing closed-loop stability) as follows:
 
 $$
 \begin{align}
@@ -177,104 +215,61 @@ P = \begin{bmatrix}
 \end{equation}
 $$
 
-we create $$V_f(\cdot)$$ and $$e_f(\cdot)$$ in code as follows:
+we add the terminal cost and constraint to the MPC formulation as follows:
 ````matlab
-function Vf = define_terminal_cost(x)
-    
-    Vf = x'*[16.5926 11.5926;11.5926 16.5926]*x;
-    
-end
-````
-````matlab
-function ef = define_terminal_constraint(x)
-    
-    ef = x'*[16.5926 11.5926;11.5926 16.5926]*x - 0.7;
-    
-end
+% add terminal cost to objective function
+obj = obj + x(:,d.p.N_NMPC+1)'*d.p.P*x(:,d.p.N_NMPC+1);
+
+% terminal constraint
+con = [con, x(:,d.p.N_NMPC+1)'*d.p.P*x(:,d.p.N_NMPC+1) <= d.p.alpha];
 ````
 
-We can finally create the nonlinear model predictive controller as follows:
+g) We can finally create a controller object as a YALMIP optimizer object as follows:
 ````matlab
-function d = create_NMPC(d)
-    
-    % import dynamics
-    ode_casadi_NMPC = d.c.mpc.getCasadiFunc(...
-        @define_dynamics, ...
-        [d.p.n_x, d.p.n_u], ...
-        {'x', 'u'});
-    
-    % discretize dynamics in time
-    F = d.c.mpc.getCasadiFunc(...
-        ode_casadi_NMPC, ...
-        [d.p.n_x, d.p.n_u], ...
-        {'x', 'u'}, ...
-        'rk4', true(), ...
-        'Delta', d.p.T);
-    
-    % define stage cost
-    l = d.c.mpc.getCasadiFunc(@define_stage_cost, ...
-        [d.p.n_x, d.p.n_u], ...
-        {'x', 'u'});
-    
-    % define terminal cost
-    Vf = d.c.mpc.getCasadiFunc(@define_terminal_cost, ...
-        d.p.n_x, {'x'}, {'Vf'});
-    
-    % define terminal state constraint
-    ef = d.c.mpc.getCasadiFunc(@define_terminal_constraint, ...
-        d.p.n_x, {'x'}, {'ef'});
-    
-    % define NMPC arguments
-    commonargs.l = l;
-    commonargs.lb.x = d.p.x_min_v;
-    commonargs.ub.x = d.p.x_max_v;
-    commonargs.lb.u = d.p.u_min_v;
-    commonargs.ub.u = d.p.u_max_v;
-    commonargs.Vf = Vf;
-    commonargs.ef = ef;
-    
-    % define NMPC problem dimensions
-    N.x = d.p.n_x; % state dimension
-    N.u = d.p.n_u; % control input dimension
-    N.t = d.p.N_NMPC; % time dimension (i.e., prediction horizon)
-    
-    % create NMPC solver
-    d.c.solvers.NMPC = d.c.mpc.nmpc(...
-        'f', F, ... % dynamics (discrete-time)
-        'N', N, ... % problem dimensions
-        'Delta', d.p.T, ... % timestep
-        'timelimit', 1, ... % solver time limit (in seconds)
-        '**', commonargs); % arguments
-    
-end
+% define optimization settings
+ops = sdpsettings;
+ops.verbose = 0; % configure level of info solver displays
+ops.solver = 'ipopt'; % choose solver
+
+% configure the outputs of the controller object
+solutions_out = [u(:);x(:)];
+
+% create MPC controller object
+d.c.controller = optimizer(con,obj,ops,x(:,1),solutions_out);
 ````
 
 Furthermore, for calling the NMPC during simulation, we need
 ````matlab
 function d = solve_NMPC(d,t)
     
-    % set state at time t as NMPC initial state
-    d.c.solvers.NMPC.fixvar('x', 1, d.s.x(:,t));
-    
     tic_c = tic;
     
     % solve NMPC problem
-    d.c.solvers.NMPC.solve();
+    % (by calling the MPC controller object)
+    sol_t = d.c.controller{d.s.x(:,t)};
     
     % record CPU time
     d.s.CPU_time(t,1) = toc(tic_c);
     
-    % assign first element of the solution to the NMPC
-    % problem as the control input at time t
-    d.s.u(:,t) = d.c.solvers.NMPC.var.u(:,1);
+    % extract the control input trajectory
+    % from the solution of MPC optimization problem
+    u_t = sol_t(1:d.p.N_NMPC)';
     
     % record the predicted state trajectory
     % for the first time step
     if t == 1
         
-        d.p.x_NMPC_t_1 = d.c.solvers.NMPC.var.x;
+        % extract the state trajectory
+        % from the solution of MPC optimization problem
+        x_t = reshape(sol_t(d.p.N_NMPC+1:end),[d.p.n_x d.p.N_NMPC+1]);
+        
+        d.p.x_NMPC_t_1 = x_t;
         
     end
+    
+    % assign first element of the solution to the NMPC
+    % problem as the control input at time t
+    d.s.u(:,t) = u_t(:,1);
     
 end
 ````
@@ -283,14 +278,14 @@ and to simulate the dynamical system we need
 function d = evolve_dynamics(d,t)
     
     d.s.x(:,t+1) = ...
-        full(d.c.simulator(d.s.x(:,t), d.s.u(:,t)));
+        F(@define_dynamics, d.s.x(:,t), d.s.u(:,t), d.p.T);
     
 end
 ````
 
-All pieces are integrated in the function <a href="https://sirmatel.github.io/assets/files/regulation_NMPC_MPCTools.m" style="color: #2d5a8c">regulation_NMPC_MPCTools.m</a>, which can be run by executing the command
+All pieces are integrated in the function <a href="https://sirmatel.github.io/assets/files/regulation_NMPC_YALMIP.m" style="color: #2d5a8c">regulation_NMPC_YALMIP.m</a>, which can be run by executing the command
 
-````d = regulation_NMPC_MPCTools(-0.7,-0.85)````
+````d = regulation_NMPC_YALMIP(-0.7,-0.85)````
 
 from the MATLAB command window. The arguments here (i.e., $$-0.7$$ and $$-0.85$$) are elements of the initial state vector. After the simulation is finished, the results should appear as a structure named ````d```` in the MATLAB workspace. A figure summarizing the results, including the state and control input trajectories, can be produced using the function <a href="https://sirmatel.github.io/assets/files/plot_results_NMPC.m" style="color: #2d5a8c">plot_results_NMPC.m</a> by executing the command
 
@@ -298,7 +293,7 @@ from the MATLAB command window. The arguments here (i.e., $$-0.7$$ and $$-0.85$$
 
 from the MATLAB command window. The resulting figure is given below.
 
-![implement NMPC with MPCTools, results]({{ site.url }}/images/implement_NMPC_MPCTools_results.png){: .center-image }
+![implement NMPC with MPCTools, results]({{ site.url }}/images/results_regulation_NMPC_YALMIP.png){: .center-image }
 
 [^Risbeck2016]: Risbeck, M. J., & Rawlings, J. B. (2016). MPCTools: Nonlinear model predictive control tools for CasADi.
 
