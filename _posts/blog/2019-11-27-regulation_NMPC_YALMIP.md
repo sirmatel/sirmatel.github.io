@@ -12,7 +12,7 @@ sidebar:
   nav: "blog"
 ---
 
-In this post we will attempt to create nonlinear model predictive control (MPC) code for the regulation problem (i.e., steering the state to a fixed equilibrium and keeping it there) in MATLAB using YALMIP. We will need MATLAB, <a href="https://yalmip.github.io/" style="color: #2d5a8c">YALMIP</a>[^Risbeck2016] (a free Octave/MATLAB toolbox for optimization modeling), and <a href="https://projects.coin-or.org/Ipopt" style="color: #2d5a8c">Ipopt</a>[^Waechter2006] (for solving the resulting nonlinear optimization problems). You can download the code created in this post here: <a href="https://sirmatel.github.io/assets/files/regulation_NMPC_YALMIP.m" style="color: #2d5a8c">regulation_NMPC_YALMIP.m</a>.
+In this post we will attempt to create nonlinear model predictive control (MPC) code for the regulation problem (i.e., steering the state to a fixed equilibrium and keeping it there) in MATLAB using YALMIP. We will need MATLAB, <a href="https://yalmip.github.io/" style="color: #2d5a8c">YALMIP</a>[^Lofberg2004] (a free Octave/MATLAB toolbox for optimization modeling), and <a href="https://projects.coin-or.org/Ipopt" style="color: #2d5a8c">Ipopt</a>[^Waechter2006] (for solving the resulting nonlinear optimization problems). You can download the code created in this post here: <a href="https://sirmatel.github.io/assets/files/regulation_NMPC_YALMIP.m" style="color: #2d5a8c">regulation_NMPC_YALMIP.m</a>.
 
 Note: For MPC code with high computational efficiency, use of either <a href="https://web.casadi.org/" style="color: #2d5a8c">CasADi</a>[^Andersson2018] or <a href="https://bitbucket.org/rawlings-group/octave-mpctools/overview" style="color: #2d5a8c">MPCTools</a>[^Risbeck2016] is recommended (see, e.g., <a href="https://sirmatel.github.io/blog/regulation_NMPC_MPCTools/" style="color: #2d5a8c">here</a>).
 
@@ -295,10 +295,12 @@ from the MATLAB command window. The resulting figure is given below.
 
 ![regulation NMPC with YALMIP, results]({{ site.url }}/images/results_regulation_NMPC_YALMIP.png){: .center-image }
 
-[^Risbeck2016]: Risbeck, M. J., & Rawlings, J. B. (2016). MPCTools: Nonlinear model predictive control tools for CasADi.
+[^Lofberg2004]: Löfberg, J. (2004, September). YALMIP: A toolbox for modeling and optimization in MATLAB. In 2004 IEEE international conference on robotics and automation (pp. 284-289).
+
+[^Waechter2006]: Wächter, A., & Biegler, L. T. (2006). On the implementation of an interior-point filter line-search algorithm for large-scale nonlinear programming. Mathematical programming, 106(1), 25-57.
 
 [^Andersson2018]: Andersson, J. A., Gillis, J., Horn, G., Rawlings, J. B., & Diehl, M. (2018). CasADi: a software framework for nonlinear optimization and optimal control. Mathematical Programming Computation, 1-36.
 
-[^Waechter2006]: Wächter, A., & Biegler, L. T. (2006). On the implementation of an interior-point filter line-search algorithm for large-scale nonlinear programming. Mathematical programming, 106(1), 25-57.
+[^Risbeck2016]: Risbeck, M. J., & Rawlings, J. B. (2016). MPCTools: Nonlinear model predictive control tools for CasADi.
 
 [^Chen1998]: Chen, H., & Allgöwer, F. (1998). A Quasi-Infinite Horizon Nonlinear Model Predictive Control Scheme with Guaranteed Stability. Automatica, 34(10), 1205-1217.
