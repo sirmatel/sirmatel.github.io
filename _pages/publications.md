@@ -1,8 +1,10 @@
 ---
 title: "publications"
 layout: archive
-author_profile: true
+author_profile: false
 permalink: /publications/
+sidebar:
+  nav: "publications"
 ---
 
 {% include base_path %}
