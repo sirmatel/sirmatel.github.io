@@ -17,15 +17,15 @@ publications:
         url: /publications/sirmatel2016
       - title: "EMPC of LSURNs via perimeter control and route guidance"
         url: /publications/sirmatel2017
-      - title: "Hierarchical control of LSURNs via path assignment and route guidance"
+      - title: "Hierarchical control of LSURNs via path assignment"
         url: /publications/yildirimoglu2018
       - title: "MHE for model predictive perimeter control of LSURNs"
         url: /publications/sirmatel2019
       - title: "NMHE for LSURNs"
         url: /publications/sirmatel2019b
-      - title: "Data driven model free adaptive iterative learning perimeter control for LSURNs"
+      - title: "Data driven model free adaptive ILC for LSURNs"
         url: /publications/ren2020
-      - title: "Model-based identification, estimation, and control for LSURNs"
+      - title: "Model-based IEC for LSURNs"
         url: /publications/sirmatel2020b
   - title: public transport systems
     children:
@@ -41,9 +41,9 @@ publications:
         url: /publications/zhang2018
   - title: theses
     children:
-      - title: "Adaptive MPC of constrained MIMO systems and its application to the quad tank system (MSc thesis)"
+      - title: "Adaptive MPC of constrained MIMO systems (MSc thesis)"
         url: /publications/sirmatel2014
-      - title: "Optimization-based control, estimation, and identification of urban road transport systems (PhD thesis)"
+      - title: "Optimization-based control of LSURNs (PhD thesis)"
         url: /publications/sirmatel2020
 
         
