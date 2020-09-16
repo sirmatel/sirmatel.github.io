@@ -23,6 +23,8 @@ publications:
         url: /publications/sirmatel2019
       - title: "NMHE for LSURNs"
         url: /publications/sirmatel2019b
+      - title: "Model-based identification, estimation, and control for LSURNs"
+        url: /publications/sirmatel2020b
   - title: public transport systems
     children:
       - title: "Dynamical modeling and MPC of bus transport systems"
@@ -37,9 +39,9 @@ publications:
         url: /publications/zhang2018
   - title: theses
     children:
-      - title: "Adaptive MPC of constrained MIMO systems and its application to the quad tank system"
+      - title: "Adaptive MPC of constrained MIMO systems and its application to the quad tank system (MSc thesis)"
         url: /publications/sirmatel2014
-      - title: "Optimization-based control, estimation, and identification of urban road transport systems"
+      - title: "Optimization-based control, estimation, and identification of urban road transport systems (PhD thesis)"
         url: /publications/sirmatel2020
 
         
