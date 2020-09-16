@@ -1,0 +1,15 @@
+---
+title: "Optimization-based control, estimation, and identification of urban road transport systems"
+author: "I.I. Sirmatel"
+where: "Urban Transport Systems Laboratory (LUTS), EPFL"
+tags: 
+date: '2020-01-31'
+layout: single
+category: publications
+author_profile: false
+excerpt:
+comments: true
+sidebar:
+  nav: 
+---
+<a href="https://infoscience.epfl.ch/record/274099/files/EPFL_TH7230.pdf" style="color: #2d5a8c; text-decoration:underline">full text (link)</a>
