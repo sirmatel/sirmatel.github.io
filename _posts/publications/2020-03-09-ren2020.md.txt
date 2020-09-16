@@ -1,0 +1,15 @@
+---
+title: "Data driven model free adaptive iterative learning perimeter control for large-scale urban road networks"
+author: "Y. Ren, Z. Hou, I.I. Sirmatel, N. Geroliminis"
+where: "Transportation Research Part C: Emerging Technologies"
+tags: 
+date: '2020-03-09'
+layout: single
+category: publications
+author_profile: false
+excerpt:
+comments: true
+sidebar:
+  nav: 
+---
+<a href="https://www.sciencedirect.com/science/article/pii/S0968090X19309842" style="color: #2d5a8c; text-decoration:underline">link</a>
