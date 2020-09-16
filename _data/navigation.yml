@@ -11,31 +11,31 @@ main:
  
 
 publications:
-  - title: control of large-scale urban road networks (LSURNs)
+  - title: control of large-scale urban road networks
     children:
-      - title: "MPC of LSURNs via perimeter control and route guidance actuation"
+      - title: "MPC of LSURNs via perimeter control and route guidance"
         url: /publications/sirmatel2016
-      - title: "Economic MPC of LSURNs via perimeter control and regional route guidance"
+      - title: "EMPC of LSURNs via perimeter control and route guidance"
         url: /publications/sirmatel2017
-      - title: "Hierarchical control of heterogeneous LSURNs via path assignment and regional route guidance"
+      - title: "Hierarchical control of LSURNs via path assignment and route guidance"
         url: /publications/yildirimoglu2018
-  - title: state estimation for large-scale urban road networks (LSURNs)
+  - title: state estimation for large-scale urban road networks
     children:
-      - title: "Moving horizon demand and state estimation for model predictive perimeter control of LSURNs"
+      - title: "MHE for model predictive perimeter control of LSURNs"
         url: /publications/sirmatel2019
-      - title: "Nonlinear moving horizon estimation for LSURNs"
+      - title: "NMHE for LSURNs"
         url: /publications/sirmatel2019b
   - title: control of public transport systems
     children:
-      - title: "Dynamical modeling and predictive control of bus transport systems: A hybrid systems approach"
+      - title: "Dynamical modeling and MPC of bus transport systems"
         url: /publications/sirmatel2017b
       - title: "Hybrid MPC of bus transport systems"
         url: /publications/sirmatel2018b
-      - title: "Mixed logical dynamical modeling and hybrid MPC of public transport operations"
+      - title: "MLD modeling and hybrid MPC of public transport operations"
         url: /publications/sirmatel2018
   - title: freeway traffic control
     children:
-      - title: "Comparison of feedback linearization and model predictive techniques for variable speed limit control"
+      - title: "Comparison of FL and MPC for VSL control"
         url: /publications/zhang2018
   - title: theses
     children:
