@@ -245,7 +245,7 @@ function d = solve_MBPE_original(d,p_guess)
 end
 ````
 
-If the above pieces are integrated and executed, we find that the optimization problem is successfully solved, and the solution is found as $$5.3$$, although the true parameter value is $$10$$. As explained in Bonilla et al. (2010)[^Bonilla2010], this is due to MBPE formulation having a nonconvex cost. This can be clearly seen by plotting the nonconvex objective function values (which can be obtained by solving the original MBPE problem with the parameter set to a fixed value):
+If the above pieces are integrated and executed, we find that the optimization problem is successfully solved, and the solution is found as $$5.3$$, although the true parameter value is $$10$$. As explained in Bonilla et al. (2010)[^Bonilla2010], this is due to MBPE formulation having a nonconvex cost. This can be clearly seen by plotting the nonconvex objective function values (which can be obtained by solving the original MBPE problem with the parameter fixed to a value, for a set of values):
 ![MBPE with measurement noise using CasADi, results]({{ site.url }}/images/MBPE_meas_noise_CasADi_ncof_figure.png){: .center-image }
 
 We thus see why the MBPE formulation we created above yielded a parameter estimate value of $$5.3$$ that is far-off from the true value of $$10$$: Starting from an initial guess of $$4$$, the optimization procedure is getting stuck at a local minimum. Bonilla et al. (2010)[^Bonilla2010] propose a remedy that is formulated as follows:
@@ -272,9 +272,9 @@ $$
 \end{aligned}
 $$
 
-It is thus possible to find a good initial guess for the original MBPE by solving the convex approximation, which yields a parameter estimate of $$7.9$$. When this value is used as initial guess for the original problem, we obtain a parameter estimate of $$10.1$$, which is fairly close to the true parameter.
+It is thus possible to find a good initial guess for the original MBPE by solving the convex approximation, which yields a parameter estimate of $$7.9$$. When this value is used as initial guess for the original problem, we obtain a parameter estimate of $$10.1$$, which is fairly close to the true value of $$10$$.
 
-To see why solving the convex approaximation can potentially lead to a good initial guess for the original problem, we can plot the nonconvex objective function values from before together with those of the convex approaximation (which can be obtained by solving the convex approximation with the parameter set to a fixed value):
+To see why solving the convex approaximation can potentially lead to a good initial guess for the original problem, we can plot the nonconvex objective function values from before together with those of the convex approaximation (which can be obtained by solving the convex approaximation with the parameter fixed to a value, for a set of values):
 ![MBPE with measurement noise using CasADi, results]({{ site.url }}/images/MBPE_meas_noise_CasADi_ncof_cof_figure.png){: .center-image }
 
 All pieces are integrated in the function <a href="https://sirmatel.github.io/assets/files/MBPE_meas_noise_CasADi.m" style="color: #2d5a8c; text-decoration:underline">MBPE_meas_noise_CasADi.m</a>, which can be run by executing the command
