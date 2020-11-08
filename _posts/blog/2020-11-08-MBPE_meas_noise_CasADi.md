@@ -26,7 +26,7 @@ $$
 \end{aligned}
 $$
 
-where $$x \in \mathbb{R}^{n_x}$$ is the state, $$p \in \mathbb{R}^{n_p}$$ is the vector of parameters to be estimated, $$T_{\text{exp}}$$ is the experiment horizon (length of recorded measurements in time units), $$Q$$ is a matrix penalizing the mismatch between the state and measurements, $$f(\cdot)$$ and $$g(\cdot)$$ are functions representing the dynamics, $$y \in \mathbb{R}^{n_y}$$ is the measurement, while $$\mathbb{X}$$ and $$\mathbb{P}$$ are sets representing constraints on the state and parameters, respectively.
+where $$x \in \mathbb{R}^{n_x}$$ is the state, $$p \in \mathbb{R}^{n_p}$$ is the vector of parameters to be estimated, $$T_{\text{exp}}$$ is the experiment horizon (length of recorded measurements in time units), $$Q$$ is a matrix penalizing the mismatch between the state and measurements, $$f(\cdot)$$ and $$g(\cdot)$$ are functions representing the dynamics, $$y \in \mathbb{R}^{n_y}$$ is the measurement of state $$x$$, $$u \in \mathbb{R}^{n_u}$$ is the recorded values of control input (if present), while $$\mathbb{X}$$ and $$\mathbb{P}$$ are sets representing constraints on the state and parameters, respectively.
 
 We take the following system as an example:
 
