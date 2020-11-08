@@ -281,7 +281,7 @@ All pieces are integrated in the function <a href="https://sirmatel.github.io/as
 
 ````d = MBPE_meas_noise_CasADi()````
 
-from the MATLAB command window. After the simulation is finished, the results should appear as a structure named ````d```` in the MATLAB workspace. 
+from the MATLAB command window. After the MBPE procedure is finished, the results should appear as a structure named ````d```` in the MATLAB workspace. 
 
 [^Bonilla2010]: Bonilla, J., Diehl, M., Logist, F., De Moor, B., & Van Impe, J. F. (2010). A convexity-based homotopy method for nonlinear optimization in model predictive control. Optimal Control Applications and Methods, 31(5), 393-414.
 
