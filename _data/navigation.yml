@@ -58,6 +58,10 @@ blog:
     children:
       - title: "Nonlinear MHE in MATLAB with MPCTools"
         url: /blog/NMHE_MPCTools
+  - title: system identification
+    children:
+      - title: "MBPE (with measurement noise) in MATLAB using CasADi"
+        url: /blog/MBPE_meas_noise_CasADi
         
         
         
