@@ -264,7 +264,7 @@ where $$\lambda$$ is a homotopy parameter and $$x_c(t)$$ is a pseudo state. Usin
 
 $$
 \begin{aligned}
-\text{minimize}_{x_c(\cdot),x(\cdot),p} & \quad \int_{0}^{T_{\text{exp}}}{\left\lVert x_c(t) - y(t) \right\rVert^2_Q} dt \\
+\text{minimize}_{x_c(\cdot),p} & \quad \int_{0}^{T_{\text{exp}}}{\left\lVert x_c(t) - y(t) \right\rVert^2_Q} dt \\
 \text{subject to} & \quad \text{for } t \in [0, T_{\text{exp}}]: \\
 & \qquad \dot{x}_c(t) = f(y(t),u(t)) + g(y(t),u(t))p \\
 & \qquad x_c(t) \in \mathbb{X} \\
