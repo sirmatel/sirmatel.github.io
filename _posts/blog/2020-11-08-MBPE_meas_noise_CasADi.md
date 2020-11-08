@@ -6,7 +6,7 @@ title: Model-based parameter estimation (with measurement noise) in MATLAB using
 tags: [model-based parameter estimation,system identification,simulation]
 comments: true
 header:
-  teaser: "MBPE_meas_noise_CasADi_ncof_cof_figure.png"
+  teaser: "MBPE_meas_noise_CasADi.png"
 date: '2020-11-08'
 sidebar:
   nav: "blog"
