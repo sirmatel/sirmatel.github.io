@@ -92,9 +92,11 @@ function d = build_setup()
     
 end
 ````
+
 Note that we use here values for the true parameter, sampling time, and experiment horizon that are different than what is used in Bonilla et al. (2010)[^Bonilla2010], thus results will be slightly different overall.
 
 We can define the dynamics as a CasADi function as follows:
+
 ````matlab
 function d = define_dynamics(d)
     
@@ -127,6 +129,7 @@ end
 ````
 
 We can create a simulator object, that will act as the plant within the simulation, as follows:
+
 ````matlab
 function d = create_simulator(d)
     
@@ -148,6 +151,7 @@ end
 ````
 
 We simulate the system using the following code, which approximates an experiment for recording the measurements on system state:
+
 ````matlab
 function d = simulate_system(d)
     
@@ -167,6 +171,7 @@ end
 ````
 
 Finally, we can implement the original MBPE formulation as follows:
+
 ````matlab
 function d = solve_MBPE_original(d,p_guess)
     
@@ -243,6 +248,7 @@ If the above pieces are integrated and executed, we find that the optimization p
 ![MBPE with measurement noise using CasADi, results]({{ site.url }}/images/MBPE_meas_noise_CasADi_ncof_figure.png){: .center-image }
 
 We thus see why the MBPE formulation we created above yielded a parameter estimate value of $$5.3$$ that is far-off from the true value of $$10$$: Starting from an initial guess of $$4$$, the optimization procedure is getting stuck at a local minimum. Bonilla et al. (2010)[^Bonilla2010] propose a remedy that is formulated as follows:
+
 $$
 \begin{aligned}
 \text{minimize}_{x_c(\cdot),x(\cdot),p} & \quad \int_{0}^{T_{\text{exp}}}{\frac{1}{\lambda} \left\lVert v(t) \right\rVert^2_Q + \frac{1}{1 - \lambda}\left\lVert x_c(t) - x(t) \right\rVert^2_Q} dt \\
@@ -253,7 +259,9 @@ $$
 & \qquad p \in \mathbb{P},
 \end{aligned}
 $$
+
 where $$\lambda$$ is a homotopy parameter and $$x_c(t)$$ is a pseudo state. Using $$\lambda=1$$ yields the original MBPE itself, while using $$\lambda=0$$ yields a convex approximation of the original MBPE:
+
 $$
 \begin{aligned}
 \text{minimize}_{x_c(\cdot),x(\cdot),p} & \quad \int_{0}^{T_{\text{exp}}}{\left\lVert x_c(t) - y(t) \right\rVert^2_Q} dt \\
