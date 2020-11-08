@@ -18,15 +18,15 @@ We consider the following MBPE formulation, where the dynamics is affine in the 
 
 $$
 \begin{aligned}
-\text{minimize}_{x(\cdot),p} & \quad \int_{0}^{T_{\text{exp}}}{\left\lVert x(t) - y(t) \right\rVert^2_Q} dt \\
+\text{minimize} & \quad \int_{0}^{T_{\text{exp}}}{\left\lVert x(t) - y(t) \right\rVert^2_Q} dt \\
 \text{subject to} & \quad \text{for } t \in [0, T_{\text{exp}}]: \\
 & \qquad \dot{x}(t) = f(x(t),u(t)) + g(x(t),u(t))p \\
 & \qquad x(t) \in \mathbb{X} \\
-& \qquad p \in \mathbb{P},
+& \quad p \in \mathbb{P},
 \end{aligned}
 $$
 
-where $$x(t) \in \mathbb{R}^{n_x}$$ is the state, $$p \in \mathbb{R}^{n_p}$$ is the vector of parameters to be estimated, $$T_{\text{exp}}$$ is the experiment horizon (length of recorded measurements in time units), $$Q$$ is a matrix penalizing the mismatch between the state and measurements, $$f(\cdot)$$ and $$g(\cdot)$$ are functions representing the dynamics, $$y \in \mathbb{R}^{n_y}$$ is the measurement, while $$\mathbb{X}$$ and $$\mathbb{P}$$ are sets representing constraints on the state and parameters, respectively.
+where $$x \in \mathbb{R}^{n_x}$$ is the state, $$p \in \mathbb{R}^{n_p}$$ is the vector of parameters to be estimated, $$T_{\text{exp}}$$ is the experiment horizon (length of recorded measurements in time units), $$Q$$ is a matrix penalizing the mismatch between the state and measurements, $$f(\cdot)$$ and $$g(\cdot)$$ are functions representing the dynamics, $$y \in \mathbb{R}^{n_y}$$ is the measurement, while $$\mathbb{X}$$ and $$\mathbb{P}$$ are sets representing constraints on the state and parameters, respectively.
 
 We take the following system as an example:
 
@@ -37,9 +37,10 @@ $$
 \end{aligned}
 $$
 
-where $$x_1(t) \in \mathbb{R}$$ and $$x_2(t) \in \mathbb{R}$$ are the state variables, while $$p \in \mathbb{R}$$ is the parameter to be estimated. 
+where $$x_1 \in \mathbb{R}$$ and $$x_2 \in \mathbb{R}$$ are the state variables, while $$p \in \mathbb{R}$$ is the parameter to be estimated. 
 
 We specify various parameters and pre-allocate memory for the signals as follows:
+
 ````matlab
 function d = build_setup()
     
@@ -251,12 +252,11 @@ We thus see why the MBPE formulation we created above yielded a parameter estima
 
 $$
 \begin{aligned}
-\text{minimize}_{x_c(\cdot),x(\cdot),p} & \quad \int_{0}^{T_{\text{exp}}}{\frac{1}{\lambda} \left\lVert v(t) \right\rVert^2_Q + \frac{1}{1 - \lambda}\left\lVert x_c(t) - x(t) \right\rVert^2_Q} dt \\
+\text{minimize} & \quad \int_{0}^{T_{\text{exp}}}{\frac{1}{\lambda} \left\lVert x(t) - y(t) \right\rVert^2_Q + \frac{1}{1 - \lambda}\left\lVert x_c(t) - x(t) \right\rVert^2_Q} dt \\
 \text{subject to} & \quad \text{for } t \in [0, T_{\text{exp}}]: \\
 & \qquad \dot{x}_c(t) = f(x(t),u(t)) + g(x(t),u(t))p \\
-& \qquad y(t) = x(t) + v(t) \\
 & \qquad x_c(t) \in \mathbb{X} \\
-& \qquad p \in \mathbb{P},
+& \quad p \in \mathbb{P},
 \end{aligned}
 $$
 
@@ -264,11 +264,11 @@ where $$\lambda$$ is a homotopy parameter and $$x_c(t)$$ is a pseudo state. Usin
 
 $$
 \begin{aligned}
-\text{minimize}_{x_c(\cdot),p} & \quad \int_{0}^{T_{\text{exp}}}{\left\lVert x_c(t) - y(t) \right\rVert^2_Q} dt \\
+\text{minimize} & \quad \int_{0}^{T_{\text{exp}}}{\left\lVert x_c(t) - y(t) \right\rVert^2_Q} dt \\
 \text{subject to} & \quad \text{for } t \in [0, T_{\text{exp}}]: \\
 & \qquad \dot{x}_c(t) = f(y(t),u(t)) + g(y(t),u(t))p \\
 & \qquad x_c(t) \in \mathbb{X} \\
-& \qquad p \in \mathbb{P}.
+& \quad p \in \mathbb{P}.
 \end{aligned}
 $$
 
