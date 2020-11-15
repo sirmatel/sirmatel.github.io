@@ -26,22 +26,23 @@ We start by building the physical setup, for which we will be using (the exact c
 
 A sketch of the physical setup, showing the components and wire connections (created using <a href="https://fritzing.org/" style="color: #2d5a8c">Fritzing</a> and <a href="https://www.leocad.org/" style="color: #2d5a8c">LeoCAD</a>) can be seen in the figure below.
 ![MBPE and MPC of DC motor, physical setup]({{ site.url }}/images/MBPE_MPC_DC_motor_setup.jpg){: .center-image }
+
 Note that one end of the LEGO NXT cable must be stripped to gain access to its 6 individual wires (see here for details: <a href="https://www.instructables.com/How-to-use-LEGO-NXT-sensors-and-motors-with-a-non-/" style="color: #2d5a8c">https://www.instructables.com/How-to-use-LEGO-NXT-sensors-and-motors-with-a-non-/</a>).
 
 To be able to use model-based methods, we derive a discrete-time linear model for the DC motor, with pulse-width modulation (PWM) duty cycle as input, and angular position and velocity as the state variables, as follows:
 $$
 \begin{equation}
 \begin{bmatrix}
-    x_1(t+1)
+    x_1(t+1) \\
 	x_2(t+1)
   \end{bmatrix} = \begin{bmatrix}
-    1 ~ T_s
+    1 ~ T_s \\
 	p_1 ~ p_2
   \end{bmatrix} \begin{bmatrix}
-    x_1(t)
+    x_1(t) \\
 	x_2(t)
   \end{bmatrix} + \begin{bmatrix}
-    0
+    0 \\
 	p_3
   \end{bmatrix} u(t),
 \end{equation}
