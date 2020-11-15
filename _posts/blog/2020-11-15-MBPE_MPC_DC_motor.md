@@ -201,7 +201,7 @@ function [A,B] = MBPE_MPC_DC_motor_conduct_MBPE(x,u,T_s)
     data.OutputName = {'Angular position', 'Angular velocity'};
     data.OutputUnit = {'rad', 'rad/s'};
     
-    % give names and units to data
+    % configure starting time and give name to time unit
     data.Tstart = 0;
     data.TimeUnit = 's';
     
@@ -251,7 +251,7 @@ $$
     x_1(t+1) \\
 	x_2(t+1)
   \end{bmatrix} = \begin{bmatrix}
-    1 \quad 0.15 \\
+    1 \qquad 0.15 \\
 	-0.17 \quad 0.58
   \end{bmatrix} \begin{bmatrix}
     x_1(t) \\
@@ -350,7 +350,7 @@ function MPC_controller = MBPE_MPC_DC_motor_create_MPC(A,B,Q,R,N)
 end
 ````
 
-We can also conduct a closed-loop system experiment, where we try to make the DC motor track an angular position reference using the above MPC controller, which we implement via the following code (download from here: <a href="https://sirmatel.github.io/assets/files/MBPE_MPC_DC_motor_conduct_tracking_experiment.m" style="color: #2d5a8c; text-decoration:underline">MBPE_MPC_DC_motor_conduct_tracking_experiment.m</a>):
+We can finally conduct a closed-loop system experiment, where we try to make the DC motor track an angular position reference using the above MPC controller, which we implement via the following code (download from here: <a href="https://sirmatel.github.io/assets/files/MBPE_MPC_DC_motor_conduct_tracking_experiment.m" style="color: #2d5a8c; text-decoration:underline">MBPE_MPC_DC_motor_conduct_tracking_experiment.m</a>):
 ````matlab
 % system model
 A = [1.00 0.15;
