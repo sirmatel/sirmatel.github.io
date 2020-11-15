@@ -14,7 +14,7 @@ sidebar:
 
 In this post we will attempt to create a feedback position control system for a DC motor using Arduino and model-based methods of control engineering. In particular, we will use model-based parameter estimation (MBPE) for system identification, and model predictive control (MPC) for solving the tracking problem (i.e., making the state follow a given reference trajectory). We will need MATLAB, <a href="https://yalmip.github.io/" style="color: #2d5a8c">YALMIP</a>[^Lofberg2004] (a free Octave/MATLAB toolbox for optimization modeling), <a href="https://github.com/coin-or/Ipopt" style="color: #2d5a8c">Ipopt</a>[^Waechter2006] (for solving the resulting convex quadratic optimization problems), and an Arduino board that is connected to MATLAB.
 
-We start by building the physical setup, for which we will be using (the exact components that were used are given in the links, however equivalents can also be used):
+We start by building the physical setup, for which we will be using the following (the exact components that were used are given in the links, however equivalents may also be used):
 
 1) a single-board microcontroller (we use Arduino Uno <a href="https://store.arduino.cc/arduino-uno-rev3" style="color: #2d5a8c">https://store.arduino.cc/arduino-uno-rev3</a>),
 
@@ -34,6 +34,7 @@ A sketch of the physical setup, showing the components and wire connections (cre
 Note that one end of the LEGO NXT cable must be stripped to gain access to its 6 individual wires (see here for details: <a href="https://www.instructables.com/How-to-use-LEGO-NXT-sensors-and-motors-with-a-non-/" style="color: #2d5a8c">https://www.instructables.com/How-to-use-LEGO-NXT-sensors-and-motors-with-a-non-/</a>).
 
 To be able to use model-based methods, we derive a discrete-time linear model for the DC motor, with pulse-width modulation (PWM) duty cycle as input, and angular position and velocity as the state variables, as follows:
+
 $$
 \begin{equation}
 \begin{bmatrix}
@@ -51,6 +52,7 @@ $$
   \end{bmatrix} u(t),
 \end{equation}
 $$
+
 where $$t \in \mathbb{Z}_{\ge 0}$$ is the discrete time, $$x_1 \in \mathbb{R}$$ is the state representing angular position, $$x_2 \in \mathbb{R}$$ is the state representing angular velocity, $$T_s$$ is the sampling time, $$p_i \in \mathbb{R}$$ ($$i \in \{1,2,3\}$$) are the model parameters, while $$u(t) \in \mathbb{R}$$ is the control input representing PWM duty cycle. The physical intuition behind the model is that, the angular position is simply the angular velocity integrated over time, while we are assuming that angular velocity can be affected by both state variables (due to effects such as viscous damping) and can be directly actuated by the PWM duty cycle. Note that, for simplicity, we are ignoring the electrical dynamics and effects such as friction.
 
 To get the estimates of the model parameters $$p_i$$, we can do a system identification experiment using the following code (download from here: <a href="https://sirmatel.github.io/assets/files/MBPE_MPC_DC_motor_SI_experiment.m" style="color: #2d5a8c; text-decoration:underline">MBPE_MPC_DC_motor_SI_experiment.m</a>):
@@ -242,25 +244,27 @@ function [A,B,C,D] = DC_motor_3_parameters(p,T_s)
 end
 ````
 Running this in MATLAB, the grey-box model estimation procedure results in the following state space model:
+
 $$
 \begin{equation}
 \begin{bmatrix}
-    x_1(t+1)
+    x_1(t+1) \\
 	x_2(t+1)
   \end{bmatrix} = \begin{bmatrix}
-    1 ~ 0.15
+    1 ~ 0.15 \\
 	-0.17 ~ 0.58
   \end{bmatrix} \begin{bmatrix}
-    x_1(t)
+    x_1(t) \\
 	x_2(t)
   \end{bmatrix} + \begin{bmatrix}
-    0
+    0 \\
 	5.74
-  \end{bmatrix} u(t),
+  \end{bmatrix} u(t).
 \end{equation}
 $$
 
 Having thus developed a discrete-time linear model for the DC motor and estimated its parameters, we can continue with constructing an MPC controller. We consider the following linear MPC formulation for the tracking problem, where the goal is to track a given angular position reference:
+
 $$
 \begin{aligned}
 \text{minimize} & \quad \sum_{k=1}^{N}{\left\lVert x(k+1) - r(k+1) \right\rVert^2_Q + \left\lVert u(k) \right\rVert^2_R,}\\
@@ -271,6 +275,7 @@ $$
 & \qquad u_{\text{min}} \leq u(k) \leq u_{\text{max}},
 \end{aligned}
 $$
+
 where $$Q$$ and $$R$$ are weighting matrices defining the stage cost, $$\hat{x}(t)$$ is the measurement of the state at the current time step $$t$$, $$x_{\text{min}}$$ and $$x_{\text{max}}$$ are state constraints, whereas $$u_{\text{min}}$$ and $$u_{\text{max}}$$ are control input constraints.
 
 We can implement the above MPC formulation by creating an MPC controller object using YALMIP via the following code (download from here: <a href="https://sirmatel.github.io/assets/files/MBPE_MPC_DC_motor_create_MPC.m" style="color: #2d5a8c; text-decoration:underline">MBPE_MPC_DC_motor_create_MPC.m</a>):
