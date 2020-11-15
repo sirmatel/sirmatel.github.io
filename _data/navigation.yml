@@ -62,6 +62,10 @@ blog:
     children:
       - title: "MBPE (with measurement noise) in MATLAB using CasADi"
         url: /blog/MBPE_meas_noise_CasADi
+  - title: applications
+    children:
+      - title: "MBPE and MPC (tracking) of a DC motor using Arduino, MATLAB, and YALMIP"
+        url: /blog/MBPE_MPC_DC_motor
         
         
         
