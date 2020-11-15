@@ -41,8 +41,8 @@ $$
     x_1(t+1) \\
 	x_2(t+1)
   \end{bmatrix} = \begin{bmatrix}
-    1 ~ T_s \\
-	p_1 ~ p_2
+    1 \quad T_s \\
+	p_1 \quad p_2
   \end{bmatrix} \begin{bmatrix}
     x_1(t) \\
 	x_2(t)
@@ -251,8 +251,8 @@ $$
     x_1(t+1) \\
 	x_2(t+1)
   \end{bmatrix} = \begin{bmatrix}
-    1 ~ 0.15 \\
-	-0.17 ~ 0.58
+    1 \quad 0.15 \\
+	-0.17 \quad 0.58
   \end{bmatrix} \begin{bmatrix}
     x_1(t) \\
 	x_2(t)
