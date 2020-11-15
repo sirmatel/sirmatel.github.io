@@ -15,14 +15,18 @@ sidebar:
 In this post we will attempt to create a feedback position control system for a DC motor using Arduino and model-based methods of control engineering. In particular, we will use model-based parameter estimation (MBPE) for system identification, and model predictive control (MPC) for solving the tracking problem (i.e., making the state follow a given reference trajectory). We will need MATLAB, <a href="https://yalmip.github.io/" style="color: #2d5a8c">YALMIP</a>[^Lofberg2004] (a free Octave/MATLAB toolbox for optimization modeling), <a href="https://github.com/coin-or/Ipopt" style="color: #2d5a8c">Ipopt</a>[^Waechter2006] (for solving the resulting convex quadratic optimization problems), and an Arduino board that is connected to MATLAB.
 
 We start by building the physical setup, for which we will be using (the exact components that were used are given in the links, however equivalents can also be used):
-\begin{itemize}
-\item a single-board microcontroller (we use Arduino Uno <a href="https://store.arduino.cc/arduino-uno-rev3" style="color: #2d5a8c">https://store.arduino.cc/arduino-uno-rev3</a>)
-\item a DC motor outfitted with a quadrature encoder (we use LEGO NXT Interactive Servo Motor <a href="https://brickset.com/sets/9842-1/Interactive-Servo-Motor" style="color: #2d5a8c">https://brickset.com/sets/9842-1/Interactive-Servo-Motor</a> and its cable <a href="https://brickset.com/sets/8529-1/Connector-Cables-for-Mindstorms-NXT" style="color: #2d5a8c">https://brickset.com/sets/8529-1/Connector-Cables-for-Mindstorms-NXT</a>)
-\item an H-Bridge (we use L9110S Dual-Channel H-Bridge Motor Driver Module <a href="https://www.makerlab-electronics.com/product/l9110s-dual-channel-h-bridge-motor-driver-module/" style="color: #2d5a8c">https://www.makerlab-electronics.com/product/l9110s-dual-channel-h-bridge-motor-driver-module/</a>)
-\item a small breadboard
-\item a 9V battery
-\item wires
-\end{itemize}
+
+1) a single-board microcontroller (we use Arduino Uno <a href="https://store.arduino.cc/arduino-uno-rev3" style="color: #2d5a8c">https://store.arduino.cc/arduino-uno-rev3</a>),
+
+2) a DC motor outfitted with a quadrature encoder (we use LEGO NXT Interactive Servo Motor <a href="https://brickset.com/sets/9842-1/Interactive-Servo-Motor" style="color: #2d5a8c">https://brickset.com/sets/9842-1/Interactive-Servo-Motor</a> and its cable <a href="https://brickset.com/sets/8529-1/Connector-Cables-for-Mindstorms-NXT" style="color: #2d5a8c">https://brickset.com/sets/8529-1/Connector-Cables-for-Mindstorms-NXT</a>),
+
+3) an H-Bridge (we use L9110S Dual-Channel H-Bridge Motor Driver Module <a href="https://www.makerlab-electronics.com/product/l9110s-dual-channel-h-bridge-motor-driver-module/" style="color: #2d5a8c">https://www.makerlab-electronics.com/product/l9110s-dual-channel-h-bridge-motor-driver-module/</a>),
+
+4) a small breadboard,
+
+5) a 9V battery,
+
+6) wires.
 
 A sketch of the physical setup, showing the components and wire connections (created using <a href="https://fritzing.org/" style="color: #2d5a8c">Fritzing</a> and <a href="https://www.leocad.org/" style="color: #2d5a8c">LeoCAD</a>) can be seen in the figure below.
 ![MBPE and MPC of DC motor, physical setup]({{ site.url }}/images/MBPE_MPC_DC_motor_setup.jpg){: .center-image }
