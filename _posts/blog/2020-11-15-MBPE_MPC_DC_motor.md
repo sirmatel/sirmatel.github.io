@@ -55,9 +55,9 @@ $$
 
 where $$t \in \mathbb{Z}_{\ge 0}$$ is the discrete time, $$x_1 \in \mathbb{R}$$ is the state representing angular position, $$x_2 \in \mathbb{R}$$ is the state representing angular velocity, $$T_s$$ is the sampling time, $$p_i \in \mathbb{R}$$ ($$i \in \{1,2,3\}$$) are the model parameters, while $$u(t) \in \mathbb{R}$$ is the control input representing PWM duty cycle. The physical intuition behind the model is that, the angular position is simply the angular velocity integrated over time, while we are assuming that angular velocity can be affected by both state variables (due to effects such as viscous damping) and can be directly actuated by the PWM duty cycle. Note that, for simplicity, we are ignoring the electrical dynamics and effects such as friction.
 
-To get the estimates of the model parameters $$p_i$$, we can do a system identification experiment using the following code (download from here: <a href="https://sirmatel.github.io/assets/files/MBPE_MPC_DC_motor_SI_experiment.m" style="color: #2d5a8c; text-decoration:underline">MBPE_MPC_DC_motor_SI_experiment.m</a>):
+To get the estimates of the model parameters $$p_i$$, we can do a system identification experiment using the following code (download from here: <a href="https://sirmatel.github.io/assets/files/MBPE_MPC_DC_motor_conduct_SI_experiment.m" style="color: #2d5a8c; text-decoration:underline">MBPE_MPC_DC_motor_conduct_SI_experiment.m</a>):
 ````matlab
-function [x,u,T_s] = MBPE_MPC_DC_motor_SI_experiment()
+function [x,u,T_s] = MBPE_MPC_DC_motor_conduct_SI_experiment()
     
     % create an Arduino object
     ardn = arduino('COM3','Uno','Libraries','RotaryEncoder');
@@ -76,15 +76,15 @@ function [x,u,T_s] = MBPE_MPC_DC_motor_SI_experiment()
     
     % length of system identification experiment
     % (in number of time steps)
-    k_max = 101;
+    t_max = 101;
     
     % preallocate memory for signals
-    PWM_duty_cycle = NaN(k_max,1);
-    theta = NaN(k_max,1);
-    omega = NaN(k_max,1);
+    PWM_duty_cycle = NaN(t_max,1);
+    theta = NaN(t_max,1);
+    omega = NaN(t_max,1);
     
-    CPU_time_full = NaN(k_max,1);
-    CPU_time_active = NaN(k_max,1);
+    CPU_time_full = NaN(t_max,1);
+    CPU_time_active = NaN(t_max,1);
     
     % stop motor and reset encoder count
     writePWMDutyCycle(ardn, motor1_D_A, 0)
@@ -99,68 +99,68 @@ function [x,u,T_s] = MBPE_MPC_DC_motor_SI_experiment()
     theta_switch_threshold = 120;
     
     % conduct system identification experiment
-    for k = 1:k_max
+    for t = 1:t_max
         
         t_full = tic;
         
         t_active = tic;
         
         % get angular position measurement from encoder
-        theta(k) = readCount(encoder);
+        theta(t) = readCount(encoder);
         
         % get angular velocity measurement from encoder
-        omega(k) = readSpeed(encoder);
+        omega(t) = readSpeed(encoder);
         
         % calculate PWM duty cycle to be applied
-        if k == 1
+        if t == 1
             
-            PWM_duty_cycle(k) = u_amplitude;
+            PWM_duty_cycle(t) = u_amplitude;
             
         else
             
-            if theta(k) > theta_switch_threshold
+            if theta(t) > theta_switch_threshold
                 
-                PWM_duty_cycle(k) = -u_amplitude;
+                PWM_duty_cycle(t) = -u_amplitude;
                 
-            elseif theta(k) < -theta_switch_threshold
+            elseif theta(t) < -theta_switch_threshold
                 
-                PWM_duty_cycle(k) = u_amplitude;
+                PWM_duty_cycle(t) = u_amplitude;
                 
             else
                 
-                PWM_duty_cycle(k) = PWM_duty_cycle(k-1);
+                PWM_duty_cycle(t) = PWM_duty_cycle(t-1);
                 
             end
             
         end
         
         % apply calculated PWM duty cycle to the DC motor
-        if PWM_duty_cycle(k) > 0
+        if PWM_duty_cycle(t) > 0
             
-            writePWMDutyCycle(ardn, motor1_D_A, PWM_duty_cycle(k))
+            writePWMDutyCycle(ardn, motor1_D_A, PWM_duty_cycle(t))
             writePWMDutyCycle(ardn, motor1_D_B, 0)
             
         else
             
             writePWMDutyCycle(ardn, motor1_D_A, 0)
-            writePWMDutyCycle(ardn, motor1_D_B, abs(PWM_duty_cycle(k)))
+            writePWMDutyCycle(ardn, motor1_D_B, abs(PWM_duty_cycle(t)))
             
         end
         
         % record real time spent for computations and communications
         % during current time step
-        CPU_time_active(k) = toc(t_active);
+        CPU_time_active(t) = toc(t_active);
         
         % add pausing time to ensure each time step is
         % close to the chosen sampling time
-        if CPU_time_active(k) < T_s
+        if CPU_time_active(t) < T_s
             
-            pause(T_s - CPU_time_active(k))
+            pause(T_s - CPU_time_active(t))
             
         end
         
         % record total real time spent during current time step
-        CPU_time_full(k) = toc(t_full);
+        CPU_time_full(t) = toc(t_full);
         
     end
     
