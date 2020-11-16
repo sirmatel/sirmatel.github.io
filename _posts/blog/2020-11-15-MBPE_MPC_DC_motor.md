@@ -270,7 +270,7 @@ $$
 \text{minimize} & \quad \sum_{k=1}^{N}{\left\lVert x(k+1) - r(k+1) \right\rVert^2_Q + \left\lVert u(k) \right\rVert^2_R,}\\
 \text{subject to} & \quad x(1) = \hat{x}(t) \\
 & \quad \text{for } k = [1, \ldots, N]: \\
-& \qquad \dot{x}(k+1) = A x(k) + B u(k) \\
+& \qquad x(k+1) = A x(k) + B u(k) \\
 & \qquad x_{\text{min}} \leq x(k+1) \leq x_{\text{max}} \\
 & \qquad u_{\text{min}} \leq u(k) \leq u_{\text{max}},
 \end{aligned}
