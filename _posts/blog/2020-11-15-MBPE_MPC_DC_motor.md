@@ -12,7 +12,7 @@ sidebar:
   nav: "blog"
 ---
 
-In this post we will attempt to create a feedback position control system for a DC motor using Arduino and model-based methods of control engineering. In particular, we will use model-based parameter estimation (MBPE) for system identification, and model predictive control (MPC) for solving the tracking problem (i.e., making the state follow a given reference trajectory). We will need MATLAB, <a href="https://yalmip.github.io/" style="color: #2d5a8c">YALMIP</a>[^Lofberg2004] (a free Octave/MATLAB toolbox for optimization modeling), <a href="https://github.com/coin-or/Ipopt" style="color: #2d5a8c">Ipopt</a>[^Waechter2006] (for solving the resulting convex quadratic optimization problems), and an Arduino board that is connected to MATLAB.
+In this post we will attempt to create a feedback position control system for a DC motor using Arduino and model-based methods of control engineering. In particular, we will use model-based parameter estimation (MBPE) for system identification, and model predictive control (MPC) for solving the tracking problem (i.e., making the state follow a given reference trajectory). We will need MATLAB, <a href="https://yalmip.github.io/" style="color: #2d5a8c">YALMIP</a>[^Lofberg2004] (a free Octave/MATLAB toolbox for optimization modeling), <a href="https://github.com/coin-or/Ipopt" style="color: #2d5a8c">Ipopt</a>[^Waechter2006] (for solving the resulting convex quadratic optimization problems), and an Arduino board that is connected to a computer running MATLAB.
 
 We start by building the physical setup, for which we will be using the following (the exact components that were used are given in the links, however equivalents may also be used):
 
