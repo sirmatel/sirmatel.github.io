@@ -1,7 +1,7 @@
 ---
 layout: single
 category: blog
-author_profile: false
+author_profile: true
 title: Model-based parameter estimation and model predictive control (tracking) of a DC motor using Arduino, MATLAB, and YALMIP
 tags: [system identification,model-based parameter estimation,control,tracking,linear MPC,hardware implementation]
 comments: true
