@@ -1,7 +1,7 @@
 ---
 layout: single
 category: blog
-author_profile: false
+author_profile: true
 title: Nonlinear model predictive control (regulation) in MATLAB with YALMIP
 tags: [control,regulation,nonlinear MPC,simulation]
 comments: true
