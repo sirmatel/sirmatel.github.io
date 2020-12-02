@@ -1,7 +1,7 @@
 ---
 layout: single
 category: blog
-author_profile: false
+author_profile: true
 title: Model-based parameter estimation (with measurement noise) in MATLAB using CasADi
 tags: [model-based parameter estimation,system identification,simulation]
 comments: true
