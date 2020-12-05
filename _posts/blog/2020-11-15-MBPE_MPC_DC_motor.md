@@ -487,7 +487,7 @@ Running this in MATLAB, we get the results of the tracking experiment on the clo
 
 Although the control system we created is performing reasonably well, there are many aspects that could be greatly improved, such as:
 
-a) The sampling time of $$0.15$$ seconds is rather large, which we had to choose here due to the fact that reading the encoder measurements and solving the MPC problem are taking considerable amount of CPU time. If these could be reduced, it would be possible to choose smaller sampling times, enabling better performance in terms of faster response. The CPU time for MPC can be reduced by using a faster solver or MPC toolboxes that are better suited to real time operations.
+a) The sampling time of $$0.15$$ seconds is rather large, which we had to choose here due to the fact that reading the encoder measurements and solving the MPC problem are taking considerable amount of CPU time. If these could be reduced, it would be possible to choose smaller sampling times. The CPU time for MPC can be reduced by using a faster solver or MPC toolboxes that are better suited to real time operations.
 
 b) There are some oscillations and small steady state errors in the angular position trajectory, which could be remedied by better tuning the MPC controller (by choosing different weights, prediction horizon, or even a better modeling and/or identification), and considering offset-free MPC formulations to get rid of the steady state error.
 
