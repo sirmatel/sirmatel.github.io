@@ -27,6 +27,8 @@ publications:
         url: /publications/ren2020
       - title: "Model-based IEC for LSURNs"
         url: /publications/sirmatel2020b
+      - title: "Stabilizing MPC of LSURNs"
+        url: /publications/sirmatel2021
   - title: public transport systems
     children:
       - title: "Dynamical modeling and MPC of bus transport systems"
