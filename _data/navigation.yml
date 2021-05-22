@@ -29,6 +29,8 @@ publications:
         url: /publications/sirmatel2020b
       - title: "Stabilizing MPC of LSURNs"
         url: /publications/sirmatel2021
+      - title: "MEC of LSURNs with remaining travel distance dynamics"
+        url: /publications/sirmatel2021b
   - title: public transport systems
     children:
       - title: "Dynamical modeling and MPC of bus transport systems"
