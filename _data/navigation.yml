@@ -5,10 +5,6 @@ main:
     
   - title: "publications"
     url: /publications
-    
-  - title: "blog"
-    url: /blog
- 
 
 publications:
   - title: theses
