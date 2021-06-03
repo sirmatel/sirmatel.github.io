@@ -5,6 +5,10 @@ main:
     
   - title: "publications"
     url: /publications
+    
+  - title: "blog"
+    url: /blog
+ 
 
 publications:
   - title: theses
@@ -46,7 +50,23 @@ publications:
       - title: "Comparison of FL and MPC for VSL control"
         url: /publications/zhang2018
 
-
-        
-        
+blog:
+  - title: control
+    children:
+      - title: "Nonlinear MPC (regulation) in MATLAB with MPCTools"
+        url: /blog/regulation_NMPC_MPCTools
+      - title: "Nonlinear MPC (regulation) in MATLAB with YALMIP"
+        url: /blog/regulation_NMPC_YALMIP
+  - title: state estimation
+    children:
+      - title: "Nonlinear MHE in MATLAB with MPCTools"
+        url: /blog/NMHE_MPCTools
+  - title: system identification
+    children:
+      - title: "MBPE (with measurement noise) in MATLAB using CasADi"
+        url: /blog/MBPE_meas_noise_CasADi
+  - title: applications
+    children:
+      - title: "MBPE and MPC (tracking) of a DC motor using Arduino, MATLAB, and YALMIP"
+        url: /blog/MBPE_MPC_DC_motor
         
