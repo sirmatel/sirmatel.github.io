@@ -13,9 +13,9 @@ main:
 publications:
   - title: theses
     children:
-      - title: "Adaptive MPC of constrained MIMO systems (M.Sc.)"
+      - title: "Adaptive MPC of constrained MIMO systems (MSc)"
         url: /publications/sirmatel2014
-      - title: "Optimization-based control of LSURNs (Ph.D.)"
+      - title: "Optimization-based control of LSURNs (PhD)"
         url: /publications/sirmatel2020
   - title: large-scale urban road networks (LSURNs)
     children:
