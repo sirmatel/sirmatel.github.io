@@ -274,7 +274,7 @@ $$
 
 It is thus possible to find a good initial guess for the original MBPE by solving the convex approximation, which yields a parameter estimate of $$7.9$$. When this value is used as initial guess for the original problem, we obtain a parameter estimate of $$10.1$$, which is fairly close to the true value of $$10$$.
 
-To see why solving the convex approximation can potentially lead to a good initial guess for the original problem, we can plot the objective function values original MBPE together with those of the convex approximation (which can be obtained by solving the convex approaximation with the parameter fixed to a value, for a set of values):
+To see why solving the convex approximation can potentially lead to a good initial guess for the original problem, we can plot the objective function values original MBPE together with those of the convex approximation (which can be obtained by solving the convex approximation with the parameter fixed to a value, for a set of values):
 ![MBPE with measurement noise using CasADi, results]({{ site.url }}/images/MBPE_meas_noise_CasADi_ncof_cof_figure.png){: .center-image }
 
 All pieces are integrated in the function <a href="https://sirmatel.github.io/assets/files/MBPE_meas_noise_CasADi.m" style="color: #2d5a8c; text-decoration:underline">MBPE_meas_noise_CasADi.m</a>, which can be run by executing the command
