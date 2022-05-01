@@ -92,6 +92,20 @@ function d = build_setup(d)
     d.p.u_min_v = d.p.u_min*ones(d.p.n_u,1);
     d.p.u_max_v = d.p.u_max*ones(d.p.n_u,1);
     
+    % weighting matrices of stage cost
+    d.p.Q = 0.5*eye(d.p.n_x);
+    d.p.R = eye(d.p.n_u);
+    
+    % weighting matrix and bound for terminal cost and constraint
+    d.p.P = [16.5926 11.5926;11.5926 16.5926];
+    d.p.alpha = 0.7;
+    
+    global Q R P alpha
+    Q = d.p.Q;
+    R = d.p.R;
+    P = d.p.P;
+    alpha = d.p.alpha;
+    
 end
 ````
 Here the use of ````-Inf```` and ````Inf```` indicates that the state is unconstrained, while the control input is constrained as $$-2 \leq u(t) \leq 2$$.
@@ -152,7 +166,9 @@ we create $$l(\cdot)$$ in code as follows:
 ````matlab
 function l = define_stage_cost(x,u)
     
-    l = x'*[0.5 0;0 0.5]*x + u^2;
+    global Q R
+    
+    l = x'*Q*x + u'*R*u;
     
 end
 ````
@@ -181,14 +197,18 @@ we create $$V_f(\cdot)$$ and $$e_f(\cdot)$$ in code as follows:
 ````matlab
 function Vf = define_terminal_cost(x)
     
-    Vf = x'*[16.5926 11.5926;11.5926 16.5926]*x;
+    global P
+    
+    Vf = x'*P*x;
     
 end
 ````
 ````matlab
 function ef = define_terminal_constraint(x)
     
-    ef = x'*[16.5926 11.5926;11.5926 16.5926]*x - 0.7;
+    global P alpha
+    
+    ef = x'*P*x - alpha;
     
 end
 ````
