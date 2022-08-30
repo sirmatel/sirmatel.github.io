@@ -1,0 +1,17 @@
+---
+title: "Idle-vehicle rebalancing coverage control for ride-sourcing systems"
+author: "P. Zhu, I.I. Sirmatel, G. Ferrari Trecate, N. Geroliminis"
+where: "2022 European Control Conference (ECC)"
+tags: 
+date: '2022-08-05'
+layout: single
+category: publications
+author_profile: true
+excerpt:
+comments: true
+sidebar:
+  nav: "publications"
+---
+<a href="https://sirmatel.github.io/assets/files/zhu2022idle.pdf" style="color: #2d5a8c; text-decoration:underline">full text (pdf)</a>
+
+Abstract: Ride-sourcing system can provide passengers with fast and efficient service with a fleet of vehicles, while asym-metry between origin and destination distributions of trips, nonuniform passenger's demand for rides in different districts creates imbalances in the spatial distribution of these vehicles. Thus proactively relocating idle vehicles to the high-demand re-gions, also known as vehicle rebalancing is an emerging problem that can have a significant improvement for the efficiency of urban transportation. We formulate this problem as a coverage problem for coordination and deployment of multiple mobile agents in city scenarios, which vehicles can benefit from by allocating them according to the different demand densities of different city districts. A Voronoi-based control algorithm is proposed by leveraging the local information of each vehicle. The effectiveness of the proposed method is validated by a simulator modeled on a real road map from Shenzhen, China. Compared to baseline, our proposed method is able to serve more trips with less passenger waiting time.
