@@ -49,6 +49,10 @@ publications:
     children:
       - title: "Comparison of FL and MPC for VSL control"
         url: /publications/zhang2018
+  - title: mobility-on-demand systems
+    children:
+      - title: "Coverage Control for Ride-sourcing systems"
+        url: /publications/zhu2022
 
 blog:
   - title: control
