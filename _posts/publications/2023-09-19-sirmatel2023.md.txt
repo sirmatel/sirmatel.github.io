@@ -1,0 +1,18 @@
+---
+title: "Nonlinear model predictive control of large-scale urban road networks via average speed control"
+author: "I.I. Sirmatel, M. Yildirimoglu"
+where: "Transportation Research Part C: Emerging Technologies"
+tags: 
+date: '2023-09-19'
+layout: single
+category: publications
+author_profile: true
+excerpt:
+comments: true
+sidebar:
+  nav: "publications"
+---
+
+Sirmatel, I. I., Yildirimoglu, M. (2023). Nonlinear model predictive control of large-scale urban road networks via average speed control. Transportation Research Part C: Emerging Technologies, 156, 104338. https://doi.org/10.1016/j.trc.2023.104338 <a href="https://www.sciencedirect.com/science/article/pii/S0968090X23003285" style="color: #2d5a8c; text-decoration:underline">(full text pdf)</a>
+
+Abstract: Controlling traffic in large-scale urban road networks is a challenging problem. Aggregated dynamical models, based on the macroscopic fundamental diagram (MFD) of urban traffic, enable model-based control design. As an alternative to perimeter control actuation commonly used in MFD-based control, in this paper, we propose actuation over regional space-mean speeds, which we name average speed control. The method involves manipulation of regional speeds via instrumentation similar to variable speed limits in freeways, or using vehicle-to-infrastructure communication. We develop nonlinear model predictive control schemes considering actuation over average speed and perimeter control. Their performances are compared using simulations on congested scenarios, the results of which suggest potential of the method as an alternative or complementary actuation to perimeter control.
