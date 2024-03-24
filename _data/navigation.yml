@@ -53,8 +53,10 @@ publications:
         url: /publications/zhang2018
   - title: mobility-on-demand systems
     children:
-      - title: "Coverage Control for Ride-sourcing systems"
+      - title: "Coverage control for ride-sourcing systems"
         url: /publications/zhu2022
+      - title: "Rebalancing coverage control of mobility-on-demand systems"
+        url: /publications/zhu2024
 
 blog:
   - title: control
