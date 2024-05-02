@@ -23,6 +23,16 @@
 <link rel="stylesheet" href="{{ site.url }}/assets/css/academicons/css/academicons.css"/>
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
-{% if site.google_analytics and jekyll.environment == 'production' %}
-{% include analytics.html %}
-{% endif %}
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E6DSWNE3W2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-E6DSWNE3W2');
+</script>
+
+<!-- {% if site.google_analytics and jekyll.environment == 'production' %} -->
+<!-- {% include analytics.html %} -->
+<!-- {% endif %} -->
