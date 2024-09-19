@@ -13,7 +13,7 @@ sidebar:
 
 {% assign items = site.posts | sort: 'date' %}
 {% for post in items %}
-{% if post.category == "blog" %}
+{% if post.category == "teaching" %}
   {% include archive-single.html type="grid" %}      
 {% endif %}
 {% endfor %}
