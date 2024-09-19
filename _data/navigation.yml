@@ -8,6 +8,9 @@ main:
     
   - title: "blog"
     url: /blog
+
+  - title: "teaching"
+    url: /teaching
  
 
 publications:
@@ -75,4 +78,11 @@ blog:
     children:
       - title: "MBPE (with measurement noise) in MATLAB using CasADi"
         url: /blog/MBPE_meas_noise_CasADi
+
+teaching:
+  - title: undergraduate
+    children:
+      - title: "EEE314 Automatic Control Systems"
+        url: /teaching/314
+
         
