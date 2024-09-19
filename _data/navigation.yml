@@ -83,6 +83,6 @@ teaching:
   - title: undergraduate
     children:
       - title: "EEE314 Automatic Control Systems"
-        url: /teaching/314
+        url: /teaching/EEE314
 
         
