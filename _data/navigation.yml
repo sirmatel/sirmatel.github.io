@@ -84,5 +84,6 @@ teaching:
     children:
       - title: "EEE314 Automatic Control Systems"
         url: /teaching/EEE314
-
+      - title: "EEE461 Optimization"
+        url: /teaching/EEE461
         
