@@ -86,4 +86,5 @@ teaching:
         url: /teaching/EEE314
       - title: "EEE461 Optimization"
         url: /teaching/EEE461
-        
+      - title: "EEE462 Model Predictive Control"
+        url: /teaching/EEE462
