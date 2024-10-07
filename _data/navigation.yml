@@ -82,6 +82,8 @@ blog:
 teaching:
   - title: undergraduate
     children:
+      - title: "EEE126 Linear Algebra"
+        url: /teaching/EEE126
       - title: "EEE314 Automatic Control Systems"
         url: /teaching/EEE314
       - title: "EEE461 Optimization"
