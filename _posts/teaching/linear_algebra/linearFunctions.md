@@ -1,6 +1,6 @@
 ---
-title: "Vectors (fundamentals)"
-permalink: "/teaching/linear_algebra/vectors"
+title: "Linear functions"
+permalink: "/teaching/linear_algebra/linear-functions"
 author_profile: true
 layout: single
 ---
