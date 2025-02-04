@@ -1,6 +1,6 @@
 ---
 title: "Vectors (fundamentals)"
-permalink: "/teaching/linear_algebra/vectors"
+permalink: "/teaching/linear_algebra/vectors-fundamentals"
 author_profile: true
 layout: single
 ---
