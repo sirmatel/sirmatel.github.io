@@ -5,4 +5,4 @@ author_profile: true
 layout: single
 ---
 
-Intro...
+Slides: <a href="https://sirmatel.github.io/assets/files/teaching_intros/EEE126giris.pdf" style="color: #2d5a8c">Turkish</a>
