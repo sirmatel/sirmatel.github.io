@@ -11,7 +11,6 @@ main:
 
   - title: "teaching"
     url: /teaching
- 
 
 publications:
   - title: theses
@@ -86,7 +85,7 @@ teaching:
         url: /teaching/EEE126
       - title: "EEE314 Automatic Control Systems"
         url: /teaching/EEE314
-      - title: "EEE461 Optimization"
+      - title: "EEE461 Numerical Optimization"
         url: /teaching/EEE461
       - title: "EEE462 Model Predictive Control"
         url: /teaching/EEE462
