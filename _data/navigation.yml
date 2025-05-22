@@ -90,6 +90,8 @@ teaching:
         url: /teaching/EEE461
       - title: "EEE462 Model Predictive Control"
         url: /teaching/EEE462
+      - title: "EEE465 Numerical Methods for Artificial Intelligence"
+        url: /teaching/EEE465
   - title: graduate
     children:
       - title: "EEM719 Computational Optimal Control"
