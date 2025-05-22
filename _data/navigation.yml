@@ -94,5 +94,7 @@ teaching:
         url: /teaching/EEE465
   - title: graduate
     children:
-      - title: "EEM719 Computational Optimal Control"
-        url: /teaching/EEM719
+      - title: "EEM762 Advanced Control Systems"
+        url: /teaching/EEM762
+      - title: "EEM763 Computational Optimal Control"
+        url: /teaching/EEM763
