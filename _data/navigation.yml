@@ -82,18 +82,18 @@ teaching:
   - title: undergraduate
     children:
       - title: "EEE126 Linear Algebra"
-        url: /teaching/EEE126
+        url: /teaching/126
       - title: "EEE314 Automatic Control Systems"
-        url: /teaching/EEE314
+        url: /teaching/314
       - title: "EEE461 Numerical Optimization"
-        url: /teaching/EEE461
+        url: /teaching/461
       - title: "EEE462 Model Predictive Control"
-        url: /teaching/EEE462
+        url: /teaching/462
       - title: "EEE465 Numerical Methods for Artificial Intelligence"
-        url: /teaching/EEE465
+        url: /teaching/465
   - title: graduate
     children:
       - title: "EEM762 Advanced Control Systems"
-        url: /teaching/EEM762
+        url: /teaching/762
       - title: "EEM763 Computational Optimal Control"
-        url: /teaching/EEM763
+        url: /teaching/763
