@@ -11,6 +11,8 @@ collections of exercises with solutions:
 
 <a href="https://sirmatel.github.io/assets/files/control/exercise-collection-2.pdf" style="color: #2d5a8c">collection 2 (Turkish) (dynamical modeling, state space models, Laplace transform, transfer functions, stability analysis, linearization)</a>
 
+<a href="https://www.kth.se/social/upload/52209c19f276545797f74576/rt_exercises_and_solutions_med%20tentatal.pdf" style="color: #2d5a8c">Exercises in Automatic Control (KTH)</a>
+
 <a href="https://ocw.mit.edu/courses/2-14-analysis-and-design-of-feedback-control-systems-spring-2014/mit2_14s14_prob_archive.pdf" style="color: #2d5a8c">Modeling Dynamics and Control I - Problem Archive, David Trumper</a>
 
 collections of exercises:
@@ -44,3 +46,7 @@ exams with solutions (from <a href="https://cse.lab.imtlucca.it/~bemporad/automa
 <a href="http://cse.lab.imtlucca.it/~bemporad/teaching/ac/tests/AC2-20100624.pdf" style="color: #2d5a8c">exam 12</a>, <a href="http://cse.lab.imtlucca.it/~bemporad/teaching/ac/tests/AC2-20100624s.pdf" style="color: #2d5a8c">solutions of exam 12</a>
 
 <a href="http://cse.lab.imtlucca.it/~bemporad/teaching/ac/tests/AC1-20102204.pdf" style="color: #2d5a8c">exam 13</a>, <a href="http://cse.lab.imtlucca.it/~bemporad/teaching/ac/tests/AC1-20102204s.pdf" style="color: #2d5a8c">solutions of exam 13</a>
+
+other exams with solutions:
+
+<a href="https://www.syscop.de/files/2019ss/sscs/SSCS_ss2019_Exam.pdf" style="color: #2d5a8c">exam of State-Space Control Systems course, Uni Freiburg</a>, <a href="https://www.syscop.de/files/2019ss/sscs/SSCS_ss2019_Exam_solution.pdf" style="color: #2d5a8c">solutions</a>
