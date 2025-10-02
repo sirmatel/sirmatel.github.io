@@ -13,7 +13,7 @@ collections of exercises with solutions:
 
 <a href="https://www.kth.se/social/upload/52209c19f276545797f74576/rt_exercises_and_solutions_med%20tentatal.pdf" style="color: #2d5a8c">Exercises in Automatic Control (KTH)</a>
 
-<a href="https://ocw.mit.edu/courses/2-14-analysis-and-design-of-feedback-control-systems-spring-2014/mit2_14s14_prob_archive.pdf" style="color: #2d5a8c">Modeling Dynamics and Control I - Problem Archive, David Trumper</a>
+<a href="https://ocw.mit.edu/courses/2-14-analysis-and-design-of-feedback-control-systems-spring-2014/mit2_14s14_prob_archive.pdf" style="color: #2d5a8c">Modeling Dynamics and Control I - Problem Archive, David Trumper, MIT</a>
 
 collections of exercises:
 
