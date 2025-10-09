@@ -37,17 +37,15 @@ layout: single
 
 <a href="http://cse.lab.imtlucca.it/~bemporad/teaching/ac/tests/AC1-20100624.pdf" style="color: #2d5a8c">exam 7 (midterm)</a>, <a href="http://cse.lab.imtlucca.it/~bemporad/teaching/ac/tests/AC1-20100624s.pdf" style="color: #2d5a8c">solutions of exam 7</a>
 
-<a href="http://cse.lab.imtlucca.it/~bemporad/teaching/ac/tests/AC1-20102204.pdf" style="color: #2d5a8c">exam 8 (midterm)</a>, <a href="http://cse.lab.imtlucca.it/~bemporad/teaching/ac/tests/AC1-20102204s.pdf" style="color: #2d5a8c">solutions of exam 8</a>
+<a href="http://cse.lab.imtlucca.it/~bemporad/teaching/ac/tests/AC2-20110627.pdf" style="color: #2d5a8c">exam 8 (final)</a>, <a href="http://cse.lab.imtlucca.it/~bemporad/teaching/ac/tests/AC2-20110627s.pdf" style="color: #2d5a8c">solutions of exam 8</a>
 
-<a href="http://cse.lab.imtlucca.it/~bemporad/teaching/ac/tests/AC2-20110627.pdf" style="color: #2d5a8c">exam 9 (final)</a>, <a href="http://cse.lab.imtlucca.it/~bemporad/teaching/ac/tests/AC2-20110627s.pdf" style="color: #2d5a8c">solutions of exam 9</a>
+<a href="http://cse.lab.imtlucca.it/~bemporad/teaching/ac/tests/AC2-20110127.pdf" style="color: #2d5a8c">exam 9 (final)</a>, <a href="http://cse.lab.imtlucca.it/~bemporad/teaching/ac/tests/AC2-20110127s.pdf" style="color: #2d5a8c">solutions of exam 9</a>
 
-<a href="http://cse.lab.imtlucca.it/~bemporad/teaching/ac/tests/AC2-20110127.pdf" style="color: #2d5a8c">exam 10 (final)</a>, <a href="http://cse.lab.imtlucca.it/~bemporad/teaching/ac/tests/AC2-20110127s.pdf" style="color: #2d5a8c">solutions of exam 10</a>
+<a href="http://cse.lab.imtlucca.it/~bemporad/teaching/ac/tests/AC2-20100910.pdf" style="color: #2d5a8c">exam 10 (final)</a>, <a href="http://cse.lab.imtlucca.it/~bemporad/teaching/ac/tests/AC2-20100910s.pdf" style="color: #2d5a8c">solutions of exam 10</a>
 
-<a href="http://cse.lab.imtlucca.it/~bemporad/teaching/ac/tests/AC2-20100910.pdf" style="color: #2d5a8c">exam 11 (final)</a>, <a href="http://cse.lab.imtlucca.it/~bemporad/teaching/ac/tests/AC2-20100910s.pdf" style="color: #2d5a8c">solutions of exam 11</a>
+<a href="http://cse.lab.imtlucca.it/~bemporad/teaching/ac/tests/AC2-20100719.pdf" style="color: #2d5a8c">exam 11 (final)</a>, <a href="http://cse.lab.imtlucca.it/~bemporad/teaching/ac/tests/AC2-20100719s.pdf" style="color: #2d5a8c">solutions of exam 11</a>
 
-<a href="http://cse.lab.imtlucca.it/~bemporad/teaching/ac/tests/AC2-20100719.pdf" style="color: #2d5a8c">exam 12 (final)</a>, <a href="http://cse.lab.imtlucca.it/~bemporad/teaching/ac/tests/AC2-20100719s.pdf" style="color: #2d5a8c">solutions of exam 12</a>
-
-<a href="http://cse.lab.imtlucca.it/~bemporad/teaching/ac/tests/AC2-20100624.pdf" style="color: #2d5a8c">exam 13 (final)</a>, <a href="http://cse.lab.imtlucca.it/~bemporad/teaching/ac/tests/AC2-20100624s.pdf" style="color: #2d5a8c">solutions of exam 13</a>
+<a href="http://cse.lab.imtlucca.it/~bemporad/teaching/ac/tests/AC2-20100624.pdf" style="color: #2d5a8c">exam 12 (final)</a>, <a href="http://cse.lab.imtlucca.it/~bemporad/teaching/ac/tests/AC2-20100624s.pdf" style="color: #2d5a8c">solutions of exam 12</a>
 
 ## other exams/exam sets (from similar courses) with solutions:
 
