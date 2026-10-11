@@ -37,6 +37,9 @@
       {% if author.university %}
         <li><a href="https://akademi.itu.edu.tr/en/{{ author.university }}" class="author-social" target="_blank"><i class="fa fa-university"></i> University</a></li>
       {% endif %}
+      {% if author.cv %}
+        <li><a href="{{ base_path }}/{{ author.cv }}" class="author-social" target="_blank"><i class="fa fa-fw fa-file-pdf-o" aria-hidden="true"></i> CV</a></li>
+      {% endif %}
       {% if author.quora %}
         <li><a href="https://www.quora.com/{{ author.quora }}" class="author-social" target="_blank"><i class="fa fa-quora"></i> Quora</a></li>
       {% endif %}
